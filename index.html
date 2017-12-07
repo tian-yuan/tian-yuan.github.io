@@ -228,6 +228,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/ansible-通过跳板机管理远程服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/07/ansible-通过跳板机管理远程服务器/" itemprop="url">ansible 通过跳板机管理远程服务器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T09:52:19+08:00">
+                2017-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h3><ul>
+<li>mac笔记本</li>
+<li>跳板机：jump.example.com</li>
+<li>被管理节点：node1.example.com, node2.example.com, node3.example.com</li>
+</ul>
+<p>mac 笔记本无法直接连接被管理节点，需要通过跳板机进行管理；</p>
+<h3 id="修改ssh-config"><a href="#修改ssh-config" class="headerlink" title="修改ssh config"></a>修改ssh config</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host node1.example.com node2.example.com node3.example.com</span><br><span class="line">    ForwardAgent yes</span><br><span class="line">    User user</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/net_id_rsa</span><br><span class="line">    ProxyCommand ssh -qaY -i ~/.ssh/net_id_rsa -p 1046 user@jump.example.com &apos;nc -w 14400 %h %p&apos;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：我这边从跳板机到被管理节点和mac到跳板机的私钥是一样的，都是 net_id_rsa</p>
+<p>如果不一样，需要修改 IdentityFile 和 ProxyCommand 的 -i 参数</p>
+<p>IdentityFile是跳板机登陆被管理节点使用的私钥文件，ProxyCommand -i 参数使用的私钥是mac登陆跳板机所使用的私钥</p>
+</blockquote>
+<h3 id="修改ansible-inventory"><a href="#修改ansible-inventory" class="headerlink" title="修改ansible inventory"></a>修改ansible inventory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">host file:</span><br><span class="line">[node]</span><br><span class="line">node1 ansible_host=node1.example.com</span><br><span class="line">node2 ansible_host=node2.example.com</span><br><span class="line">node3 ansible_host=node3.example.com</span><br></pre></td></tr></table></figure>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible -i host -m ping</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/consul-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -956,7 +1088,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
