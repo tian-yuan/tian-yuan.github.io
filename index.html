@@ -228,6 +228,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/pipework-demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/07/pipework-demo/" itemprop="url">pipework demo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T20:58:07+08:00">
+                2017-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="pipework-demo"><a href="#pipework-demo" class="headerlink" title="pipework demo"></a>pipework demo</h3><p>主机A地址为10.10.101.105/24,网关为10.10.101.254,需要给Docker容器的地址配置为10.10.101.150/24。在主机A上做如下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#安装pipework</span><br><span class="line">git clone https://github.com/jpetazzo/pipework</span><br><span class="line">cp ~/pipework/pipework /usr/local/bin/</span><br><span class="line">#启动Docker容器。</span><br><span class="line">docker run -itd --name test1 ubuntu /bin/bash</span><br><span class="line">#配置容器网络，并连到网桥br0上。网关在IP地址后面加@指定。</span><br><span class="line">#若主机环境中存在dhcp服务器，也可以通过dhcp的方式获取IP</span><br><span class="line">#pipework br0 test1 dhcp</span><br><span class="line">pipework br0 test1 10.10.101.150/24@10.10.101.254</span><br><span class="line">#将主机eth0桥接到br0上，并把eth0的IP配置在br0上。这里由于是远程操作，中间网络会断掉，所以放在一条命令中执行。</span><br><span class="line">#将主机eth0桥接到br0上，eth0就成了虚拟网桥br0的一部分。</span><br><span class="line">ip addr add 10.10.101.105/24 dev br0; \</span><br><span class="line">    ip addr del 10.10.101.105/24 dev eth0; \</span><br><span class="line">    brctl addif br0 eth0; \</span><br><span class="line">    ip route del default; \</span><br><span class="line">    ip route add default gw 10.10.101.254 dev br0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#创建br0网桥</span><br><span class="line">#若ovs开头，则创建OVS网桥 ovs-vsctl add-br ovs*</span><br><span class="line">#IFNAME=br0</span><br><span class="line">brctl addbr $IFNAME</span><br><span class="line">#创建veth pair,用于连接容器和br0</span><br><span class="line">#LOCAL_IFNAME=eh0 GUEST_IFNAME=eth1</span><br><span class="line">ip link add name $LOCAL_IFNAME mtu $MTU type veth peer name $GUEST_IFNAME mtu $MTU</span><br><span class="line">#找到Docker容器test1在主机上的PID,创建容器网络命名空间的软连接</span><br><span class="line">#GUESTNAME=test1</span><br><span class="line">DOCKERPID=$(docker inspect --format=&apos;&#123;&#123; .State.Pid &#125;&#125;&apos; $GUESTNAME)</span><br><span class="line">ln -s /proc/$NSPID/ns/net /var/run/netns/$NSPID</span><br><span class="line">#将veth pair一端放入Docker容器中，并设置正确的名字eth1</span><br><span class="line">#CONTAINER_IFNAME=eth1</span><br><span class="line">#把$GUEST_IFNAME添加到$NSPID网络命名空间中，也就是虚拟网络环境</span><br><span class="line">ip link set $GUEST_IFNAME netns $NSPID</span><br><span class="line">ip netns exec $NSPID ip link set $GUEST_IFNAME name $CONTAINER_IFNAME</span><br><span class="line">#将veth pair另一端加入网桥</span><br><span class="line">#若为OVS网桥则为 ovs-vsctl add-port $IFNAME $LOCAL_IFNAME $&#123;VLAN:+&quot;tag=$VLAN&quot;&#125;</span><br><span class="line">brctl addif $IFNAME $LOCAL_IFNAME</span><br><span class="line">#为新增加的容器配置IP和路由</span><br><span class="line">#GATEWAY=10.10.101.254</span><br><span class="line">ip netns exec $NSPID ip addr add $IPADDR dev $CONTAINER_IFNAME</span><br><span class="line">ip netns exec $NSPID ip link set $CONTAINER_IFNAME up</span><br><span class="line">ip netns exec $NSPID ip route delete default</span><br><span class="line">ip netns exec $NSPID ip route add $GATEWAY/32 dev $CONTAINER_IFNAME</span><br></pre></td></tr></table></figure>
+<ol>
+<li>首先pipework检查是否存在br0网桥，若不存在，就自己创建。若以”ovs”开头，就会创建OpenVswitch网桥，以”br”开头，创建Linux bridge。</li>
+<li>创建veth pair设备，用于为容器提供网卡并连接到br0网桥。</li>
+<li>使用docker inspect找到容器在主机中的PID，然后通过PID将容器的网络命名空间链接到/var/run/netns/目录下。这么做的目的是，方便在主机上使用ip netns命令配置容器的网络。因为，在Docker容器中，我们没有权限配置网络环境。</li>
+<li>将之前创建的veth pair设备分别加入容器和网桥中。在容器中的名称默认为eth1，可以通过pipework的-i参数修改该名称。</li>
+<li>然后就是配置新网卡的IP。若在IP地址的后面加上网关地址，那么pipework会重新配置默认路由。这样容器通往外网的流量会经由新配置的eth1出去，而不是通过eth0和docker0。(若想完全抛弃自带的网络设置，在启动容器的时候可以指定–net=none)</li>
+</ol>
+<h1 id="ip-netns相关命令"><a href="#ip-netns相关命令" class="headerlink" title="ip netns相关命令"></a>ip netns相关命令</h1><ul>
+<li>增加虚拟网络命名空间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns add net0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示所有的虚拟网络命名空间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ip netns list</span><br><span class="line"></span><br><span class="line">net0</span><br></pre></td></tr></table></figure>
+<p>也可通过查看/var/run/netns目录下的文件来list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ls /var/run/netns/</span><br><span class="line"></span><br><span class="line">net0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进入虚拟机网络环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 `command`</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">如</span><br><span class="line"></span><br><span class="line">EULER:~ # ip netns exec net0 bash  #打开虚拟网络环境net0的bash窗口</span><br><span class="line"></span><br><span class="line">EULER:~ # ip addr #显示所有虚拟网络环境的设备</span><br><span class="line"></span><br><span class="line">EULER:~ # exit #退出该网络虚拟环境</span><br><span class="line"></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<ul>
+<li>增加一对veth虚拟网卡</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ip link add type veth</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将veth0添加到net0虚拟网络环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip link set veth0 netns net0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将虚拟网卡veth1改名并添加到net1虚拟网络环境中</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip link set dev veth1 name net1-bridge netns net1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置虚拟网络环境net0的veth0设备处于激活状态</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 ip link set veth0 up</span><br></pre></td></tr></table></figure>
+<ul>
+<li>为虚拟网络环境net0的veth0设备增加IP地址</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 ip address add 10.0.1.1/24 dev veth0</span><br></pre></td></tr></table></figure>
+<h3 id="在操作过程中遇到的问题"><a href="#在操作过程中遇到的问题" class="headerlink" title="在操作过程中遇到的问题"></a>在操作过程中遇到的问题</h3><ul>
+<li><p>添加路由时的错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route add default gw 10.211.55.1 dev eth0</span><br><span class="line">Error: either &quot;to&quot; is duplicate, or &quot;gw&quot; is a garbage.</span><br></pre></td></tr></table></figure>
+<p>需要修改成：</p>
+<p>ip route add 10.221.55.0/24 via 10.211.55.1 dev eth0</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/ansible-通过跳板机管理远程服务器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1088,7 +1258,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
