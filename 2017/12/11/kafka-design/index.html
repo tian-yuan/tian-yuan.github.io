@@ -16,21 +16,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>spring mvc | Hexo</title>
-  <meta name="description" content="创建Spring Mvc项目 使用Intellij ide，创建一个空项目； 添加一个module，maven simple app模版； 增加spring framework支持； 最终project struct如下：  代码列表web.xml123456789101112131415161718192021222">
+  <title>kafka design | Hexo</title>
+  <meta name="description" content="转译：Varnish 架构师笔记 找到这篇文章是在阅读 Kafka 文档时，一个名为 “Don’t fear the filesystem!”的段落中提到的。文档指出，我们总是思维定势地以为磁盘很慢，内存很快。然而今天的计算机体系结构中，并非这么简单：  因为操作系统 PageCache 的存在，磁盘操作可能很快 虽然">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring mvc">
-<meta property="og:url" content="http://yoursite.com/2017/11/30/spring-mvc/index.html">
+<meta property="og:title" content="kafka design">
+<meta property="og:url" content="http://yoursite.com/2017/12/11/kafka-design/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="创建Spring Mvc项目 使用Intellij ide，创建一个空项目； 添加一个module，maven simple app模版； 增加spring framework支持； 最终project struct如下：  代码列表web.xml1234567891011121314151617181920212223242526272829&amp;lt;!DOCTYPE web-app PUBLIC">
-<meta property="og:image" content="http://yoursite.com/2017/11/30/spring-mvc/project-struct.png">
-<meta property="og:updated_time" content="2017-12-01T02:02:30.110Z">
+<meta property="og:description" content="转译：Varnish 架构师笔记 找到这篇文章是在阅读 Kafka 文档时，一个名为 “Don’t fear the filesystem!”的段落中提到的。文档指出，我们总是思维定势地以为磁盘很慢，内存很快。然而今天的计算机体系结构中，并非这么简单：  因为操作系统 PageCache 的存在，磁盘操作可能很快 虽然磁盘 IOPS 难以提高，但吞吐量在不断上升；换句话说，顺序读写磁盘非常快 CP">
+<meta property="og:updated_time" content="2017-12-11T08:42:14.279Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring mvc">
-<meta name="twitter:description" content="创建Spring Mvc项目 使用Intellij ide，创建一个空项目； 添加一个module，maven simple app模版； 增加spring framework支持； 最终project struct如下：  代码列表web.xml1234567891011121314151617181920212223242526272829&amp;lt;!DOCTYPE web-app PUBLIC">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/30/spring-mvc/project-struct.png">
+<meta name="twitter:title" content="kafka design">
+<meta name="twitter:description" content="转译：Varnish 架构师笔记 找到这篇文章是在阅读 Kafka 文档时，一个名为 “Don’t fear the filesystem!”的段落中提到的。文档指出，我们总是思维定势地以为磁盘很慢，内存很快。然而今天的计算机体系结构中，并非这么简单：  因为操作系统 PageCache 的存在，磁盘操作可能很快 虽然磁盘 IOPS 难以提高，但吞吐量在不断上升；换句话说，顺序读写磁盘非常快 CP">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2017/11/30/spring-mvc/index.html">
+  <link rel="canonical" href="http://yoursite.com/2017/12/11/kafka-design/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -338,14 +336,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-spring-mvc" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-kafka-design" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      spring mvc
+      kafka design
     </h1>
   
 
@@ -353,8 +351,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="fa fa-calendar-check-o"></i>
-	<a href="/2017/11/30/spring-mvc/" class="article-date">
-	  <time datetime="2017-11-30T13:00:22.000Z" itemprop="datePublished">2017-11-30</time>
+	<a href="/2017/12/11/kafka-design/" class="article-date">
+	  <time datetime="2017-12-11T06:45:40.000Z" itemprop="datePublished">2017-12-11</time>
 	</a>
 </span>
         
@@ -369,27 +367,71 @@
 	</span>
 
 
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/11/30/spring-mvc/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/11/kafka-design/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
       
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h2 id="创建Spring-Mvc项目"><a href="#创建Spring-Mvc项目" class="headerlink" title="创建Spring Mvc项目"></a>创建Spring Mvc项目</h2><ul>
-<li>使用Intellij ide，创建一个空项目；</li>
-<li>添加一个module，maven simple app模版；</li>
-<li>增加spring framework支持；</li>
-<li>最终project struct如下：<br><img src="/2017/11/30/spring-mvc/project-struct.png" alt="project struct"></li>
+        <h1 id="转译：Varnish-架构师笔记"><a href="#转译：Varnish-架构师笔记" class="headerlink" title="转译：Varnish 架构师笔记"></a>转译：Varnish 架构师笔记</h1><blockquote>
+<p>找到这篇文章是在阅读 Kafka 文档时，一个<a href="https://kafka.apache.org/documentation/#persistence" target="_blank" rel="noopener">名为 “Don’t fear the filesystem!”的段落</a>中提到的。文档指出，我们总是思维定势地以为磁盘很慢，内存很快。然而今天的计算机体系结构中，并非这么简单：</p>
+<ul>
+<li>因为操作系统 PageCache 的存在，磁盘操作可能很快</li>
+<li>虽然磁盘 IOPS 难以提高，但吞吐量在不断上升；换句话说，顺序读写磁盘非常快</li>
+<li>CPU Cache 常常被忽略了，了解 CPU Cache 对提升内存读写性能至关重要</li>
 </ul>
-<h2 id="代码列表"><a href="#代码列表" class="headerlink" title="代码列表"></a>代码列表</h2><h3 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE web-app PUBLIC</span></span><br><span class="line"><span class="meta"> "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span></span><br><span class="line"><span class="meta"> "http://java.sun.com/dtd/web-app_2_3.dtd" &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Archetype Created Web Application<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:dispatcher-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:dispatcher-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中 context-param 中指定了配置加载的路径；</p>
-<h3 id="dispatcher-servlet-xml"><a href="#dispatcher-servlet-xml" class="headerlink" title="dispatcher-servlet.xml"></a>dispatcher-servlet.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"controller"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中注意 xsi:schemaLocation，context:component-scan依赖与 <a href="http://www.springframework.org/schema/context/spring-context.xsd" target="_blank" rel="noopener">http://www.springframework.org/schema/context/spring-context.xsd</a><br>如果不添加，会报无法解析xml的错误；</p>
-<h3 id="MainController"><a href="#MainController" class="headerlink" title="MainController"></a>MainController</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package controller;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by tianyuan on 2017/11/30.</span><br><span class="line"> */</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">@RequestMapping(value = &quot;/&quot;)</span><br><span class="line">public class MainController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(method = RequestMethod.GET)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public String welcome() &#123;</span><br><span class="line">        return &quot;hello world main controller&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="spring-mvc-原理分析"><a href="#spring-mvc-原理分析" class="headerlink" title="spring mvc 原理分析"></a>spring mvc 原理分析</h3><p>tomcat 在启动时会解析 web.xml 文件，web.xml就是入口；</p>
-<p>web.xml 中的 listener： org.springframework.web.context.ContextLoaderListener 会加载beans，解析annotation等；</p>
-<p>其中context-param中的classpath，指classes文件夹路径，可以从编译后的target目录可以看出，编译和部署后的文件目录信息；</p>
+<p><a href="http://varnish-cache.org/docs/trunk/phk/notes.html" target="_blank" rel="noopener">原文链接</a></p>
+</blockquote>
+<p>当你开始深入 Varnish 的源代码后，应该会发觉它与你日常所见的一般应用软件有着明显不同，而这绝非偶然。</p>
+<p>多年以来我的绝大部分时间花费在 FreeBSD 的内核开发上，而每每涉足用户空间编程，却总是毫无例外地发现那里的人们还在以1975年的方式工作。</p>
+<p>所以 Varnish 这个项目一开始并没能激起我很大的兴趣。但我渐渐意识到 Varnish 虽然是一个用户态应用，但却也是一个能充分发挥我长久以来积累的关于硬件和内核的经验知识的理想场所。目前 Varnish 的开发已经进展到alpha版本的阶段，而我觉得应当承认自己相当享受这一段历程。</p>
+<h3 id="1975的编程方式到底出了什么问题？"><a href="#1975的编程方式到底出了什么问题？" class="headerlink" title="1975的编程方式到底出了什么问题？"></a>1975的编程方式到底出了什么问题？</h3><p>简而言之：计算机系统再也不应该被看作是由两个存储层次构成的了。</p>
+<p>首先是主存：从水银延迟线，磁芯存储器，到现在可供随机访问的RAM。</p>
+<p>然后是辅存：从纸带，磁带，到磁盘。最早的磁盘有一屋子大，然后缩小到洗衣机的尺寸，到今天硬盘可以被放进随身携带的 MP3 播放器中。</p>
+<p>于是大家就按照这样的划分，在内存中分配变量，在磁盘中存取数据，以这样的方式进行编程工作。</p>
+<p>还是拿 Squid 这个1975年风格的系统为例：你事先配置它的内存和硬盘用量，然后它会花费大把时间来追踪哪些HTTP对象驻留内存中，哪些存放在硬盘上，并且根据不同情况来调整它们的放置策略。</p>
+<p>然而实际上呢，现今的计算机应被视为只使用一种统一的存储系统，这个系统完全基于硬盘（磁盘，固态硬盘或者其他什么东西），而传统的内存呢，在操作系统内核和虚拟内存硬件机制的帮助下可以被看作是硬盘的缓存。</p>
+<p>回过头来看 Squid 的策略，它精心设计的存储管理机制实际上却陷入了与操作系统内核同样精巧的管理策略的激烈冲突。而就像所有内战一样，这样的冲突必然一事无成。</p>
+<p>我们可以尝试从细节角度来看整个流程：一开始 Squid 会请求内存用来创建了一个 HTTP 对象，它往往会在创建之初被频繁访问多次，然后闲置一段时间。而后当内核接收到其他内存分配请求时，会将这些它认为闲置的内存数据放到硬盘交换分区去，而把这些回收的内存页用于更活跃的任务。在Squid下一次访问这一对象时，操作系统又会把暂存在交换分区的数据取回来供它使用。 这些内核对于内存的操作对于 Squid 是透明的，在它看来这个 HTTP 对象就像从没离开过内存一样，而实际上物理内存页得到了更有效的使用。</p>
+<p>这就是虚拟内存机制。</p>
+<p>如果事情到此为止的话就好了，但接下来1975年式的编程风格就出现了。</p>
+<p>一段时间之后，Squid 也和内核一样注意到了这个对象闲置了，于是打算把它放到硬盘上去，省出一些内存来给更频繁访问的数据使用。所以它打开一个文件把这个对象写了进去。</p>
+<p>打开慢镜头来看这个写入的过程：</p>
+<p>Squid 通过系统调用 write 将 HTTP 对象的虚拟内存地址传递给内核。<br>由于物理页已经被内核交换出去，这个内存访问将引发一个缺页中断。<br>为了重新载入这个内存页，内核不得不交换出另一个正在使用的内存页（很可能包含另一 Squid 的对象），修复页表，然后继续执行系统调用。<br>Squid 对这些一无所知，它自以为只是进行了一次再普通不过的访存操作而已。</p>
+<p>接下来 Squid 可以终于拿这块内存放别的数据了。而当这个对象再次被访问到时，Squid 又不得不把它从硬盘中取回来。首先它需要空闲的内存来存放这个对象，于是它根据某种淘汰算法选中另一个最近不常用的对象，把它写到硬盘上去（上面那些步骤重演了一遍）。然后打开文件读出这次所需的那个对象，最后通过网络套接字发送出去。</p>
+<p>这一切显然充满了各种无用功。</p>
+<p>让我们看看 Varnish 是怎么做的</p>
+<p>Varnish 会直接请求大块虚拟内存，并由操作系统将这个内存空间映射到一个硬盘文件。当需要访问某个 HTTP 对象时，只需要正确索引这个对象相应的虚拟内存地址，剩下的交给操作系统就好了。当内核需要回收一些内存页时，它会自行决定将一些 Varnish 的内存数据写回到映射的文件中。而当 Varnish 再次访问这一块虚拟内存时，内核自然会腾出内存页来将文件中的数据读回使用。</p>
+<p>仅此而已。</p>
+<p>Varnish 不去尝试控制哪些数据应该被缓存在内存中，哪些应该放到硬盘上去。内核代码和硬件会处理这些事情，而且处理得很漂亮。</p>
+<p>此外，与 Squid 不同的是 Varnish 只需要一个文件而不是为每个 HTTP 对象创建单独的文件。没有任何理由需要在 HTTP 对象和文件系统对象间建立一一对应的关系，也没有理由把时间浪费在文件系统的命名空间处理上。Varnish 需要处理的只是虚拟内存的指针和所需对象的长度值而已。</p>
+<p>虚拟内存的出现为数据大于物理内存的场景提供了一种便利的机制，但人们似乎并没有领悟这一点。</p>
+<h3 id="更多的缓存"><a href="#更多的缓存" class="headerlink" title="更多的缓存"></a>更多的缓存</h3><p>CPU 的时钟频率目前看来基本止步于4GHz了。即便如此，为了避免内存读写的瓶颈，硬件工程师们不得不使用使用一级，二级，有时候甚至是三级 CPU cache（现在我们可以认为 RAM 是第四级缓存了），此外还有写缓冲，流水线，页模式读取等各种技术，而这些都是为了加快访存来匹配CPU的处理速度。</p>
+<p>虽然时钟频率方面受限，但硅工艺的进步缩小了器件尺寸，集成了更多的晶体管。所以多核 CPU 的设计逐渐成为主流，但这从编程模型角度看来实在是很糟糕的一件事。</p>
+<p>虽然多核系统存在已久，但编写能够利用上多个 CPU 的代码依然是一件棘手的事。而要在多核系统上写出高性能的程序就更是如此了。</p>
+<p>比如我们有两个计数器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsigned n_foo;</span><br><span class="line">unsigned n_bar;</span><br></pre></td></tr></table></figure>
+<p>在一个 CPU 上执行了 <code>n_foo++</code> 的操作会使得CPU读取 <code>n_foo</code> 的值然后写回。</p>
+<p>读取一个内存位置首先会检查它是否在 CPU L1 cache 中命中，这挺难的除非它刚刚被使用过。接下来是 L2 cache，我们不妨假设依然没有命中吧。</p>
+<p>如果是在一个单核系统上，CPU 会去内存读取数据然后就完事。但在多核系统中，我们必须去检查其他CPU核心是否缓存并修改了 <code>n_foo</code> 的数值。我们会发起一个特殊的总线事务做这种检查，如果其他 CPU 答复说它确实持有这样一份拷贝，它就需要将它写回到内存中。如果硬件设计良好，我们可能可以通过总线监听获得这份新数据，不然的话就需要去内存里读取它。</p>
+<p>我们终于可以修改 <code>n_foo</code> 的值了，但其实修改完了之后一般不会直接将它写回到内存中。为了之后操作的快速存取，很可能我们会把它缓存起来。</p>
+<p>现在假设另一个 CPU 需要执行 <code>n_bar++</code> 的操作，它能够直接进行吗？答案是否定的。因为缓存的单位并不是字节而是 cache-line（典型值是 8-128 个字节）。所以当第一个 CPU 忙着处理 <code>n_foo</code> 时，第二个 CPU 必须等待，因为虽然它想获取的是另一个变量，但却不幸落在了同一个 cache-line 中。</p>
+<p>明白了吧？没错，这有点丑。</p>
+<h3 id="我们该怎么办"><a href="#我们该怎么办" class="headerlink" title="我们该怎么办"></a>我们该怎么办</h3><p><strong>尽一切可能，减少内存操作。</strong></p>
+<p>下面是 Varnish 的一些做法。</p>
+<p>当需要处理一个 HTTP 请求或响应时，我们会持有一组指针和一个内存工作区。我们并不需要在处理每个 HTTP 报头时都调用 malloc，而是一次性分配整个工作区的内存，然后按需从中获取所需空间。而当我们一次性释放全部报头时，只要将指针重置到工作区的起始位置即可。</p>
+<p>当需要将 HTTP 报头从一个请求拷贝到另一个请求（或从从一个响应复制到另一个响应）时，并不需要进行字符串拷贝，而只要拷贝指针。如果源报头在这个过程中不会被不释放或改写，这样做是非常安全的。比如从客户端请求到后台请求的拷贝就是这样一个例子。</p>
+<p>但在一些新构建的报头生命周期长于源报头的场景中，就需要另外分配内存了。例如当我们会缓存新 HTTP 对象时，首先就计算整个报头所需空间，然后通过一次 malloc 调用来获取内存。</p>
+<p>另外我们会尽可能重用那些正被缓存的内存数据。</p>
+<p>比如 Varnish 的 worker 线程是以<em>最近最忙的</em>方式调度的，也即是说一个 worker 线程空闲后会被放回到队列的最前端，使得它更有机会马上去处理下一个新请求，这样它的数据，栈空间和变量等很可能可以在 CPU 缓存中被重用，而不是再次从RAM中读取。</p>
+<p>同时对于 worker 线程经常使用的数据，我们会把它们分配在每个线程的栈变量中，并且确保它们占据完整的内存页。这样我们就可以尽可能避免 cache-line 的竞争。</p>
+<p>如果对你来说这些听起来都很陌生，我可以告诉你它们是确实有效的：Varnish 处理一个命中缓存的请求最多只需18个系统调用，而且其中不少只是为了获得时间戳来满足统计的需要。</p>
+<p>这些技术并不新鲜，我们已经在内核开发中使用了10多年，现在该轮到你们来学习了:-)</p>
+<p>如此，欢迎进入 Varnish，一个 2006风格架构的程序。</p>
+<blockquote>
+<p>Linux cache reference : <a href="https://www.ibm.com/developerworks/cn/linux/l-cache/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-cache/index.html</a></p>
+</blockquote>
 
       
     </div>
@@ -399,7 +441,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2017/11/30/spring-mvc/" title="spring mvc" target="_blank" rel="external">http://yoursite.com/2017/11/30/spring-mvc/</a>
+      <a href="http://yoursite.com/2017/12/11/kafka-design/" title="kafka design" target="_blank" rel="external">http://yoursite.com/2017/12/11/kafka-design/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -447,13 +489,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2017/12/04/linux-mysql/" title="linux mysql"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2017/11/29/create-blog/" title="create blog">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/12/11/kafka/" title="kafka">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
     </li>
     
   </ul>

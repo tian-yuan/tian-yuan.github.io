@@ -1,1486 +1,650 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
+  <title>Hexo</title>
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/"/>
-
-
-
-
-
-  <title>Hexo</title>
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/index.html">
   
-
-
-
-
-
-
-
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
 
-  
-  
-    
-  
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="fa fa-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
 
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <!-- <span class="ins-close ins-selectable"><i class="fa fa-times"></i></span> -->
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
-  
-    <ul id="menu" class="menu">
-      
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/.">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            <i class="fa fa-fw fa-dashboard"></i>
             
-            Startseite
+            <span class="menu-title">Home</span>
           </a>
         </li>
-      
+        
+        
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            <i class="fa fa-fw fa-delicious"></i>
             
-            Archiv
+            <span class="menu-title">Archives</span>
           </a>
         </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="fa fa-fw fa-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="fa fa-fw fa-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="fa fa-fw fa-code"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="fa fa-fw fa-leanpub"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="fa fa-fw fa-gg"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="fa fa-fw fa-coffee"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
       
-
-      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="fa fa-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="fa fa-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="fa fa-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="fa fa-rss"></i></a></li>
+        
     </ul>
-  
 
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/pipework-demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/07/pipework-demo/" itemprop="url">pipework demo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T20:58:07+08:00">
-                2017-12-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="pipework-demo"><a href="#pipework-demo" class="headerlink" title="pipework demo"></a>pipework demo</h3><p>主机A地址为10.10.101.105/24,网关为10.10.101.254,需要给Docker容器的地址配置为10.10.101.150/24。在主机A上做如下操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#安装pipework</span><br><span class="line">git clone https://github.com/jpetazzo/pipework</span><br><span class="line">cp ~/pipework/pipework /usr/local/bin/</span><br><span class="line">#启动Docker容器。</span><br><span class="line">docker run -itd --name test1 ubuntu /bin/bash</span><br><span class="line">#配置容器网络，并连到网桥br0上。网关在IP地址后面加@指定。</span><br><span class="line">#若主机环境中存在dhcp服务器，也可以通过dhcp的方式获取IP</span><br><span class="line">#pipework br0 test1 dhcp</span><br><span class="line">pipework br0 test1 10.10.101.150/24@10.10.101.254</span><br><span class="line">#将主机eth0桥接到br0上，并把eth0的IP配置在br0上。这里由于是远程操作，中间网络会断掉，所以放在一条命令中执行。</span><br><span class="line">#将主机eth0桥接到br0上，eth0就成了虚拟网桥br0的一部分。</span><br><span class="line">ip addr add 10.10.101.105/24 dev br0; \</span><br><span class="line">    ip addr del 10.10.101.105/24 dev eth0; \</span><br><span class="line">    brctl addif br0 eth0; \</span><br><span class="line">    ip route del default; \</span><br><span class="line">    ip route add default gw 10.10.101.254 dev br0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#创建br0网桥</span><br><span class="line">#若ovs开头，则创建OVS网桥 ovs-vsctl add-br ovs*</span><br><span class="line">#IFNAME=br0</span><br><span class="line">brctl addbr $IFNAME</span><br><span class="line">#创建veth pair,用于连接容器和br0</span><br><span class="line">#LOCAL_IFNAME=eh0 GUEST_IFNAME=eth1</span><br><span class="line">ip link add name $LOCAL_IFNAME mtu $MTU type veth peer name $GUEST_IFNAME mtu $MTU</span><br><span class="line">#找到Docker容器test1在主机上的PID,创建容器网络命名空间的软连接</span><br><span class="line">#GUESTNAME=test1</span><br><span class="line">DOCKERPID=$(docker inspect --format=&apos;&#123;&#123; .State.Pid &#125;&#125;&apos; $GUESTNAME)</span><br><span class="line">ln -s /proc/$NSPID/ns/net /var/run/netns/$NSPID</span><br><span class="line">#将veth pair一端放入Docker容器中，并设置正确的名字eth1</span><br><span class="line">#CONTAINER_IFNAME=eth1</span><br><span class="line">#把$GUEST_IFNAME添加到$NSPID网络命名空间中，也就是虚拟网络环境</span><br><span class="line">ip link set $GUEST_IFNAME netns $NSPID</span><br><span class="line">ip netns exec $NSPID ip link set $GUEST_IFNAME name $CONTAINER_IFNAME</span><br><span class="line">#将veth pair另一端加入网桥</span><br><span class="line">#若为OVS网桥则为 ovs-vsctl add-port $IFNAME $LOCAL_IFNAME $&#123;VLAN:+&quot;tag=$VLAN&quot;&#125;</span><br><span class="line">brctl addif $IFNAME $LOCAL_IFNAME</span><br><span class="line">#为新增加的容器配置IP和路由</span><br><span class="line">#GATEWAY=10.10.101.254</span><br><span class="line">ip netns exec $NSPID ip addr add $IPADDR dev $CONTAINER_IFNAME</span><br><span class="line">ip netns exec $NSPID ip link set $CONTAINER_IFNAME up</span><br><span class="line">ip netns exec $NSPID ip route delete default</span><br><span class="line">ip netns exec $NSPID ip route add $GATEWAY/32 dev $CONTAINER_IFNAME</span><br></pre></td></tr></table></figure>
-<ol>
-<li>首先pipework检查是否存在br0网桥，若不存在，就自己创建。若以”ovs”开头，就会创建OpenVswitch网桥，以”br”开头，创建Linux bridge。</li>
-<li>创建veth pair设备，用于为容器提供网卡并连接到br0网桥。</li>
-<li>使用docker inspect找到容器在主机中的PID，然后通过PID将容器的网络命名空间链接到/var/run/netns/目录下。这么做的目的是，方便在主机上使用ip netns命令配置容器的网络。因为，在Docker容器中，我们没有权限配置网络环境。</li>
-<li>将之前创建的veth pair设备分别加入容器和网桥中。在容器中的名称默认为eth1，可以通过pipework的-i参数修改该名称。</li>
-<li>然后就是配置新网卡的IP。若在IP地址的后面加上网关地址，那么pipework会重新配置默认路由。这样容器通往外网的流量会经由新配置的eth1出去，而不是通过eth0和docker0。(若想完全抛弃自带的网络设置，在启动容器的时候可以指定–net=none)</li>
-</ol>
-<h1 id="ip-netns相关命令"><a href="#ip-netns相关命令" class="headerlink" title="ip netns相关命令"></a>ip netns相关命令</h1><ul>
-<li>增加虚拟网络命名空间</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns add net0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>显示所有的虚拟网络命名空间</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ip netns list</span><br><span class="line"></span><br><span class="line">net0</span><br></pre></td></tr></table></figure>
-<p>也可通过查看/var/run/netns目录下的文件来list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ls /var/run/netns/</span><br><span class="line"></span><br><span class="line">net0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>进入虚拟机网络环境</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 `command`</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">如</span><br><span class="line"></span><br><span class="line">EULER:~ # ip netns exec net0 bash  #打开虚拟网络环境net0的bash窗口</span><br><span class="line"></span><br><span class="line">EULER:~ # ip addr #显示所有虚拟网络环境的设备</span><br><span class="line"></span><br><span class="line">EULER:~ # exit #退出该网络虚拟环境</span><br><span class="line"></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
-<ul>
-<li>增加一对veth虚拟网卡</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ip link add type veth</span><br></pre></td></tr></table></figure>
-<ul>
-<li>将veth0添加到net0虚拟网络环境</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip link set veth0 netns net0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>将虚拟网卡veth1改名并添加到net1虚拟网络环境中</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip link set dev veth1 name net1-bridge netns net1</span><br></pre></td></tr></table></figure>
-<ul>
-<li>设置虚拟网络环境net0的veth0设备处于激活状态</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 ip link set veth0 up</span><br></pre></td></tr></table></figure>
-<ul>
-<li>为虚拟网络环境net0的veth0设备增加IP地址</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 ip address add 10.0.1.1/24 dev veth0</span><br></pre></td></tr></table></figure>
-<h3 id="在操作过程中遇到的问题"><a href="#在操作过程中遇到的问题" class="headerlink" title="在操作过程中遇到的问题"></a>在操作过程中遇到的问题</h3><ul>
-<li><p>添加路由时的错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route add default gw 10.211.55.1 dev eth0</span><br><span class="line">Error: either &quot;to&quot; is duplicate, or &quot;gw&quot; is a garbage.</span><br></pre></td></tr></table></figure>
-<p>需要修改成：</p>
-<p>ip route add 10.221.55.0/24 via 10.211.55.1 dev eth0</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </nav>
   </div>
-  
-  
-  
-  </article>
+</header>
 
-
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/ansible-通过跳板机管理远程服务器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/07/ansible-通过跳板机管理远程服务器/" itemprop="url">ansible 通过跳板机管理远程服务器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T09:52:19+08:00">
-                2017-12-07
-              </time>
+            <p>您好，您是第<span id="busuanzi_value_site_uv">0</span>位访客</p>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h3><ul>
-<li>mac笔记本</li>
-<li>跳板机：jump.example.com</li>
-<li>被管理节点：node1.example.com, node2.example.com, node3.example.com</li>
-</ul>
-<p>mac 笔记本无法直接连接被管理节点，需要通过跳板机进行管理；</p>
-<h3 id="修改ssh-config"><a href="#修改ssh-config" class="headerlink" title="修改ssh config"></a>修改ssh config</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host node1.example.com node2.example.com node3.example.com</span><br><span class="line">    ForwardAgent yes</span><br><span class="line">    User user</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/net_id_rsa</span><br><span class="line">    ProxyCommand ssh -qaY -i ~/.ssh/net_id_rsa -p 1046 user@jump.example.com &apos;nc -w 14400 %h %p&apos;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：我这边从跳板机到被管理节点和mac到跳板机的私钥是一样的，都是 net_id_rsa</p>
-<p>如果不一样，需要修改 IdentityFile 和 ProxyCommand 的 -i 参数</p>
-<p>IdentityFile是跳板机登陆被管理节点使用的私钥文件，ProxyCommand -i 参数使用的私钥是mac登陆跳板机所使用的私钥</p>
-</blockquote>
-<h3 id="修改ansible-inventory"><a href="#修改ansible-inventory" class="headerlink" title="修改ansible inventory"></a>修改ansible inventory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">host file:</span><br><span class="line">[node]</span><br><span class="line">node1 ansible_host=node1.example.com</span><br><span class="line">node2 ansible_host=node2.example.com</span><br><span class="line">node3 ansible_host=node3.example.com</span><br></pre></td></tr></table></figure>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible -i host -m ping</span><br></pre></td></tr></table></figure>
-          
-        
-      
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/consul-deploy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/05/consul-deploy/" itemprop="url">consul deploy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-05T16:21:16+08:00">
-                2017-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="consul-集群部署"><a href="#consul-集群部署" class="headerlink" title="consul 集群部署"></a>consul 集群部署</h3><h4 id="从consul-github-clone-工程"><a href="#从consul-github-clone-工程" class="headerlink" title="从consul github clone 工程"></a>从consul github clone 工程</h4><p>~/src/github.com/hashicorp/consul</p>
-<h4 id="修改-Vagrantfile-文件"><a href="#修改-Vagrantfile-文件" class="headerlink" title="修改 Vagrantfile 文件"></a>修改 Vagrantfile 文件</h4><p>~/src/github.com/hashicorp/consul/demo/vagrant-cluster/Vagrantfile</p>
-<p>在最后增加:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">config.vm.define &quot;n3&quot; do |n3|</span><br><span class="line">      n3.vm.hostname = &quot;n3&quot;</span><br><span class="line">      n3.vm.network &quot;private_network&quot;, ip: &quot;172.20.20.12&quot;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h4 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h4><p>使用vagrant up启动虚拟机</p>
-<h4 id="部署信息"><a href="#部署信息" class="headerlink" title="部署信息"></a>部署信息</h4><table>
-<thead>
-<tr>
-<th>HostName</th>
-<th>IP Address</th>
-<th>Consul Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>n1</td>
-<td>172.20.20.10</td>
-<td>bootstrap consul server</td>
-</tr>
-<tr>
-<td>n2</td>
-<td>172.20.20.11</td>
-<td>server</td>
-</tr>
-<tr>
-<td>n3</td>
-<td>172.20.20.12</td>
-<td>client</td>
-</tr>
-</tbody>
-</table>
-<p>n1 config: /etc/consul.d/bootstrap/config.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"bootstrap"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"server"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"node_name"</span>: <span class="string">"ageng_one"</span>,</span><br><span class="line">    <span class="attr">"bind_addr"</span>: <span class="string">"172.20.20.10"</span>,</span><br><span class="line">    <span class="attr">"client_addr"</span>: <span class="string">"172.20.20.10"</span>,</span><br><span class="line">    <span class="attr">"datacenter"</span>: <span class="string">"dc1"</span>,</span><br><span class="line">    <span class="attr">"data_dir"</span>: <span class="string">"/tmp/consul"</span>,</span><br><span class="line">    <span class="attr">"encrypt"</span>: <span class="string">"6MmrecCBuJMePdP2tOBDxw=="</span>,</span><br><span class="line">    <span class="attr">"log_level"</span>: <span class="string">"INFO"</span>,</span><br><span class="line">    <span class="attr">"enable_script_checks"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"enable_syslog"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>n2 config: /etc/consul.d/server/config.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"bootstrap"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"server"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"datacenter"</span>: <span class="string">"dc1"</span>,</span><br><span class="line">    <span class="attr">"node_name"</span>: <span class="string">"agent_two"</span>,</span><br><span class="line">    <span class="attr">"bind_addr"</span>: <span class="string">"172.20.20.11"</span>,</span><br><span class="line">    <span class="attr">"client_addr"</span>: <span class="string">"172.20.20.11"</span>,</span><br><span class="line">    <span class="attr">"data_dir"</span>: <span class="string">"/tmp/consul"</span>,</span><br><span class="line">    <span class="attr">"encrypt"</span>: <span class="string">"6MmrecCBuJMePdP2tOBDxw=="</span>,</span><br><span class="line">    <span class="attr">"log_level"</span>: <span class="string">"INFO"</span>,</span><br><span class="line">    <span class="attr">"enable_syslog"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"enable_script_checks"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"start_join"</span>: [<span class="string">"172.20.20.11"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>n3 config: /etc/consul.d/client/config.json<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"datacenter"</span>: <span class="string">"dc1"</span>,</span><br><span class="line">    <span class="attr">"node_name"</span>: <span class="string">"agent_three"</span>,</span><br><span class="line">    <span class="attr">"bind_addr"</span>: <span class="string">"172.20.20.12"</span>,</span><br><span class="line">    <span class="attr">"client_addr"</span>: <span class="string">"172.20.20.12"</span>,</span><br><span class="line">    <span class="attr">"data_dir"</span>: <span class="string">"/tmp/consul"</span>,</span><br><span class="line">    <span class="attr">"encrypt"</span>: <span class="string">"6MmrecCBuJMePdP2tOBDxw=="</span>,</span><br><span class="line">    <span class="attr">"log_level"</span>: <span class="string">"INFO"</span>,</span><br><span class="line">    <span class="attr">"enable_syslog"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"enable_script_checks"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"start_join"</span>: [<span class="string">"172.20.20.10"</span>, <span class="string">"172.20.20.11"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="启动consul服务"><a href="#启动consul服务" class="headerlink" title="启动consul服务"></a>启动consul服务</h4><p>n1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">consul agent -config-dir=/etc/consul.d/bootstrap/</span><br></pre></td></tr></table></figure></p>
-<p>n2:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">consul agent -config-dir=/etc/consul.d/server/</span><br></pre></td></tr></table></figure></p>
-<p>n3:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">consul agent -config-dir=/etc/consul.d/client/</span><br></pre></td></tr></table></figure></p>
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>使用vagrant登陆任意一个虚拟机：<br>vagrant ssh n3</p>
-<ul>
-<li>验证节点信息</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vagrant@n3:~$ consul members -http-addr=172.20.20.11:8500</span><br><span class="line">Node         Address            Status  Type    Build  Protocol  DC   Segment</span><br><span class="line">ageng_one    172.20.20.10:8301  alive   server  1.0.1  2         dc1  &lt;all&gt;</span><br><span class="line">agent_two    172.20.20.11:8301  alive   server  1.0.1  2         dc1  &lt;all&gt;</span><br><span class="line">agent_three  172.20.20.12:8301  alive   client  1.0.1  2         dc1  &lt;default&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注册服务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">curl --request PUT --data @payload.json http://172.20.20.11:8500/v1/agent/service/register</span><br><span class="line"></span><br><span class="line">payload.json:</span><br><span class="line">&#123;</span><br><span class="line">  &quot;ID&quot;: &quot;redis2&quot;,</span><br><span class="line">  &quot;Name&quot;: &quot;redis&quot;,</span><br><span class="line">  &quot;Tags&quot;: [</span><br><span class="line">    &quot;primary&quot;,</span><br><span class="line">    &quot;v1&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;Address&quot;: &quot;172.20.20.11&quot;,</span><br><span class="line">  &quot;Port&quot;: 8000,</span><br><span class="line">  &quot;EnableTagOverride&quot;: false,</span><br><span class="line">  &quot;Check&quot;: &#123;</span><br><span class="line">    &quot;DeregisterCriticalServiceAfter&quot;: &quot;90m&quot;,</span><br><span class="line">    &quot;Args&quot;: [&quot;/usr/local/bin/check_redis.py&quot;],</span><br><span class="line">    &quot;HTTP&quot;: &quot;http://www.baidu.com&quot;,</span><br><span class="line">    &quot;Interval&quot;: &quot;10s&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查询服务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">vagrant@n3:~$ curl http://172.20.20.12:8500/v1/health/service/redis?pretty</span><br><span class="line">[</span><br><span class="line">   &#123;</span><br><span class="line">       &quot;Node&quot;: &#123;</span><br><span class="line">           &quot;ID&quot;: &quot;73653e92-b66b-04c6-40d5-0339226c9797&quot;,</span><br><span class="line">           &quot;Node&quot;: &quot;agent_two&quot;,</span><br><span class="line">           &quot;Address&quot;: &quot;172.20.20.11&quot;,</span><br><span class="line">           &quot;Datacenter&quot;: &quot;dc1&quot;,</span><br><span class="line">           &quot;TaggedAddresses&quot;: &#123;</span><br><span class="line">               &quot;lan&quot;: &quot;172.20.20.11&quot;,</span><br><span class="line">               &quot;wan&quot;: &quot;172.20.20.11&quot;</span><br><span class="line">           &#125;,</span><br><span class="line">           &quot;Meta&quot;: &#123;</span><br><span class="line">               &quot;consul-network-segment&quot;: &quot;&quot;</span><br><span class="line">           &#125;,</span><br><span class="line">           &quot;CreateIndex&quot;: 691,</span><br><span class="line">           &quot;ModifyIndex&quot;: 692</span><br><span class="line">       &#125;,</span><br><span class="line">       &quot;Service&quot;: &#123;</span><br><span class="line">           &quot;ID&quot;: &quot;redis2&quot;,</span><br><span class="line">           &quot;Service&quot;: &quot;redis&quot;,</span><br><span class="line">           &quot;Tags&quot;: [</span><br><span class="line">               &quot;primary&quot;,</span><br><span class="line">               &quot;v1&quot;</span><br><span class="line">           ],</span><br><span class="line">           &quot;Address&quot;: &quot;172.20.20.11&quot;,</span><br><span class="line">           &quot;Port&quot;: 8000,</span><br><span class="line">           &quot;EnableTagOverride&quot;: false,</span><br><span class="line">           &quot;CreateIndex&quot;: 692,</span><br><span class="line">           &quot;ModifyIndex&quot;: 692</span><br><span class="line">       &#125;,</span><br><span class="line">       &quot;Checks&quot;: [</span><br><span class="line">           &#123;</span><br><span class="line">               &quot;Node&quot;: &quot;agent_two&quot;,</span><br><span class="line">               &quot;CheckID&quot;: &quot;serfHealth&quot;,</span><br><span class="line">               &quot;Name&quot;: &quot;Serf Health Status&quot;,</span><br><span class="line">               &quot;Status&quot;: &quot;passing&quot;,</span><br><span class="line">               &quot;Notes&quot;: &quot;&quot;,</span><br><span class="line">               &quot;Output&quot;: &quot;Agent alive and reachable&quot;,</span><br><span class="line">               &quot;ServiceID&quot;: &quot;&quot;,</span><br><span class="line">               &quot;ServiceName&quot;: &quot;&quot;,</span><br><span class="line">               &quot;ServiceTags&quot;: [],</span><br><span class="line">               &quot;Definition&quot;: &#123;&#125;,</span><br><span class="line">               &quot;CreateIndex&quot;: 691,</span><br><span class="line">               &quot;ModifyIndex&quot;: 691</span><br><span class="line">           &#125;</span><br><span class="line">       ]</span><br><span class="line">  &#125; </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意这个是查询全局服务列表，如果使用 curl <a href="http://172.20.20.12:8500/v1/agent/services" target="_blank" rel="noopener">http://172.20.20.12:8500/v1/agent/services</a> 进行查询，只能查询当前agent管理的services</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/linux-mysql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/04/linux-mysql/" itemprop="url">linux mysql</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-04T15:39:38+08:00">
-                2017-12-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="How-to-start-or-stop-mysql-on-macos"><a href="#How-to-start-or-stop-mysql-on-macos" class="headerlink" title="How to start or stop mysql on macos"></a>How to start or stop mysql on macos</h3><p>There are different cases depending on whether you installed MySQL with the official binary installer, using MacPorts, or using Homebrew:</p>
-<ul>
-<li>MacPorts</li>
-</ul>
-<p>sudo launchctl unload -w /Library/LaunchDaemons/org.macports.mysql.plist<br>sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql.plist<br>Note: this is persistent after reboot.</p>
-<ul>
-<li>Homebrew</li>
-</ul>
-<p>launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist<br>launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</p>
-<ul>
-<li>Binary installer</li>
-</ul>
-<p>sudo /Library/StartupItems/MySQLCOM/MySQLCOM stop<br>sudo /Library/StartupItems/MySQLCOM/MySQLCOM start<br>sudo /Library/StartupItems/MySQLCOM/MySQLCOM restart</p>
-<blockquote>
-<p>in my mac os, the command is :</p>
-</blockquote>
-<p>sudo launchctl unload -w /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/spring-mvc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/30/spring-mvc/" itemprop="url">spring mvc</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-30T21:00:22+08:00">
-                2017-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="创建Spring-Mvc项目"><a href="#创建Spring-Mvc项目" class="headerlink" title="创建Spring Mvc项目"></a>创建Spring Mvc项目</h2><ul>
-<li>使用Intellij ide，创建一个空项目；</li>
-<li>添加一个module，maven simple app模版；</li>
-<li>增加spring framework支持；</li>
-<li>最终project struct如下：<br><img src="/2017/11/30/spring-mvc/project-struct.png" alt="project struct"></li>
-</ul>
-<h2 id="代码列表"><a href="#代码列表" class="headerlink" title="代码列表"></a>代码列表</h2><h3 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE web-app PUBLIC</span></span><br><span class="line"><span class="meta"> "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"</span></span><br><span class="line"><span class="meta"> "http://java.sun.com/dtd/web-app_2_3.dtd" &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Archetype Created Web Application<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:dispatcher-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:dispatcher-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中 context-param 中指定了配置加载的路径；</p>
-<h3 id="dispatcher-servlet-xml"><a href="#dispatcher-servlet-xml" class="headerlink" title="dispatcher-servlet.xml"></a>dispatcher-servlet.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"controller"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中注意 xsi:schemaLocation，context:component-scan依赖与 <a href="http://www.springframework.org/schema/context/spring-context.xsd" target="_blank" rel="noopener">http://www.springframework.org/schema/context/spring-context.xsd</a><br>如果不添加，会报无法解析xml的错误；</p>
-<h3 id="MainController"><a href="#MainController" class="headerlink" title="MainController"></a>MainController</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package controller;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by tianyuan on 2017/11/30.</span><br><span class="line"> */</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">@RequestMapping(value = &quot;/&quot;)</span><br><span class="line">public class MainController &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(method = RequestMethod.GET)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public String welcome() &#123;</span><br><span class="line">        return &quot;hello world main controller&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="spring-mvc-原理分析"><a href="#spring-mvc-原理分析" class="headerlink" title="spring mvc 原理分析"></a>spring mvc 原理分析</h3><p>tomcat 在启动时会解析 web.xml 文件，web.xml就是入口；</p>
-<p>web.xml 中的 listener： org.springframework.web.context.ContextLoaderListener 会加载beans，解析annotation等；</p>
-<p>其中context-param中的classpath，指classes文件夹路径，可以从编译后的target目录可以看出，编译和部署后的文件目录信息；</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/29/create-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/29/create-blog/" itemprop="url">create blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-29T10:01:32+08:00">
-                2017-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="How-to-create-your-blog-in-three-step"><a href="#How-to-create-your-blog-in-three-step" class="headerlink" title="How to create your blog in three step"></a>How to create your blog in three step</h3><ul>
-<li>first should install nodejs/git</li>
-<li>install hexo, <a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a></li>
-<li>use theme next, <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></li>
-<li>start your blog</li>
-</ul>
-<h3 id="the-blog-is-look-like"><a href="#the-blog-is-look-like" class="headerlink" title="the blog is look like"></a>the blog is look like</h3><p><img src="/2017/11/29/create-blog/create-blog-main-page.png" alt="main page"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/29/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/29/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-29T09:50:32+08:00">
-                2017-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">Artikel</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-
-          </nav>
-
-          
-
-          <div class="links-of-author motion-element">
-            
-          </div>
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-
-  
 </div>
 
-
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+    
+      
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+      
 
     
-
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
   </div>
 
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/11/kafka-design/" class="title">kafka design</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-11T06:45:40.000Z" itemprop="datePublished">2017-12-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/11/kafka/" class="title">kafka</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-11T03:16:36.000Z" itemprop="datePublished">2017-12-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/07/pipework-demo/" class="title">pipework demo</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-07T12:58:07.000Z" itemprop="datePublished">2017-12-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/07/ansible-通过跳板机管理远程服务器/" class="title">ansible 通过跳板机管理远程服务器</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-07T01:52:19.000Z" itemprop="datePublished">2017-12-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/05/consul-deploy/" class="title">consul deploy</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-05T08:21:16.000Z" itemprop="datePublished">2017-12-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
   
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
+    
+  </div>
+</aside>
 
   
-
-
-
-
-
-
-
-
-
-
-
-
+  <main class="main" role="main">
   
+  <div class="content article-list">
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/11/kafka-design/">kafka design</a>
+    </h1>
   
 
+  </div>
   
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/11/kafka-design/" class="article-date">
+	  <time datetime="2017-12-11T06:45:40.000Z" itemprop="datePublished">Dec 11</time>
+	</a>
+</span>
+    
+    
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/11/kafka-design/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
 
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/11/kafka/">kafka</a>
+    </h1>
   
 
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/11/kafka/" class="article-date">
+	  <time datetime="2017-12-11T03:16:36.000Z" itemprop="datePublished">Dec 11</time>
+	</a>
+</span>
+    
+    
+
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/11/kafka/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/07/pipework-demo/">pipework demo</a>
+    </h1>
   
 
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/07/pipework-demo/" class="article-date">
+	  <time datetime="2017-12-07T12:58:07.000Z" itemprop="datePublished">Dec 7</time>
+	</a>
+</span>
+    
+    
+
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/07/pipework-demo/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/07/ansible-通过跳板机管理远程服务器/">ansible 通过跳板机管理远程服务器</a>
+    </h1>
   
 
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/07/ansible-通过跳板机管理远程服务器/" class="article-date">
+	  <time datetime="2017-12-07T01:52:19.000Z" itemprop="datePublished">Dec 7</time>
+	</a>
+</span>
+    
+    
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/07/ansible-通过跳板机管理远程服务器/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
 
-
-
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/05/consul-deploy/">consul deploy</a>
+    </h1>
   
 
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/05/consul-deploy/" class="article-date">
+	  <time datetime="2017-12-05T08:21:16.000Z" itemprop="datePublished">Dec 5</time>
+	</a>
+</span>
+    
+    
 
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/05/consul-deploy/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/04/linux-mysql/">linux mysql</a>
+    </h1>
   
 
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/04/linux-mysql/" class="article-date">
+	  <time datetime="2017-12-04T07:39:38.000Z" itemprop="datePublished">Dec 4</time>
+	</a>
+</span>
+    
+    
 
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/04/linux-mysql/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
 
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/30/spring-mvc/">spring mvc</a>
+    </h1>
+  
 
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/11/30/spring-mvc/" class="article-date">
+	  <time datetime="2017-11-30T13:00:22.000Z" itemprop="datePublished">Nov 30</time>
+	</a>
+</span>
+    
+    
+
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/11/30/spring-mvc/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/29/create-blog/">create blog</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/11/29/create-blog/" class="article-date">
+	  <time datetime="2017-11-29T02:01:32.000Z" itemprop="datePublished">Nov 29</time>
+	</a>
+</span>
+    
+    
+
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/11/29/create-blog/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/29/hello-world/">Hello World</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/11/29/hello-world/" class="article-date">
+	  <time datetime="2017-11-29T01:50:32.274Z" itemprop="datePublished">Nov 29</time>
+	</a>
+</span>
+    
+    
+
+    <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/11/29/hello-world/#comments" class="article-comment-link">Comments</a></span>
+    
+  </p>
+</article>
+
+    
+  </div>
+
+   
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="fa fa-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="fa fa-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="fa fa-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="fa fa-rss"></i></a></li>
+        
+    </ul>
 
-
-
-
-
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.js"></script>
+<script src="/js/application.js"></script>
   
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
+    
+    
+    
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
