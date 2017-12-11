@@ -16,19 +16,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>ansible 通过跳板机管理远程服务器 | Hexo</title>
-  <meta name="description" content="环境信息 mac笔记本 跳板机：jump.example.com 被管理节点：node1.example.com, node2.example.com, node3.example.com  mac 笔记本无法直接连接被管理节点，需要通过跳板机进行管理； 修改ssh config123456Host node1.exa">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ansible 通过跳板机管理远程服务器">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/ansible-通过跳板机管理远程服务器/index.html">
+  <title>书单 | Hexo</title>
+  <meta property="og:type" content="website">
+<meta property="og:title" content="书单">
+<meta property="og:url" content="http://yoursite.com/books/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="环境信息 mac笔记本 跳板机：jump.example.com 被管理节点：node1.example.com, node2.example.com, node3.example.com  mac 笔记本无法直接连接被管理节点，需要通过跳板机进行管理； 修改ssh config123456Host node1.example.com node2.example.com node3.example">
-<meta property="og:updated_time" content="2017-12-07T02:09:40.629Z">
+<meta property="og:updated_time" content="2017-12-11T11:47:19.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ansible 通过跳板机管理远程服务器">
-<meta name="twitter:description" content="环境信息 mac笔记本 跳板机：jump.example.com 被管理节点：node1.example.com, node2.example.com, node3.example.com  mac 笔记本无法直接连接被管理节点，需要通过跳板机进行管理； 修改ssh config123456Host node1.example.com node2.example.com node3.example">
+<meta name="twitter:title" content="书单">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2017/12/07/ansible-通过跳板机管理远程服务器/index.html">
+  <link rel="canonical" href="http://yoursite.com/books/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -45,7 +42,7 @@
 </head>
 
 
-<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center no-sidebar" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -327,178 +324,40 @@
 </aside>
 
   
-  
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-ansible-通过跳板机管理远程服务器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-    
-    <div class="article-header">
-      
-        
-  
-    <h1 class="article-title" itemprop="name">
-      ansible 通过跳板机管理远程服务器
-    </h1>
-  
-
-      
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="fa fa-calendar-check-o"></i>
-	<a href="/2017/12/07/ansible-通过跳板机管理远程服务器/" class="article-date">
-	  <time datetime="2017-12-07T01:52:19.000Z" itemprop="datePublished">2017-12-07</time>
-	</a>
-</span>
-        
-        
-
-        
-	<span class="article-read hidden-xs">
-	    <i class="fa fa-eye" aria-hidden="true"></i>
-	    <span id="busuanzi_container_page_pv">
-			<span id="busuanzi_value_page_pv">0</span>
-		</span>
-	</span>
-
-
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/07/ansible-通过跳板机管理远程服务器/#comments" class="article-comment-link">Comments</a></span>
-        
-      </div>
-      
+  <main class="main" role="main">
+  <article class="article article-links article-type-list" itemscope="">
+  <header class="article-header">
+    <h1 itemprop="title">书单</h1>
+    <p class="text-muted">Personal collection of books recommended to everyone <a href="https://www.douban.com/people//" target="_blank">[Douban]</a></p>
+    <nav role="navigation" id="nav-main" class="okayNav">
+      <ul id="tabs">
+        <li><a id="reading-tab" href="javascript:show('reading')" target="_blank" rel="external">在读<span id="reading-total"></span></a></li>
+        <li><a id="wish-tab" href="javascript:show('wish')" target="_blank" rel="external">想读<span id="wish-total"></span></a></li>
+        <li><a id="read-tab" href="javascript:show('read')" target="_blank" rel="external">已读<span id="read-total"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="article-body">
+    <div id="loading">
+      <p>正在加载...</p>
     </div>
-    <div class="article-entry markdown-body" itemprop="articleBody">
-      
-        <h3 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h3><ul>
-<li>mac笔记本</li>
-<li>跳板机：jump.example.com</li>
-<li>被管理节点：node1.example.com, node2.example.com, node3.example.com</li>
-</ul>
-<p>mac 笔记本无法直接连接被管理节点，需要通过跳板机进行管理；</p>
-<h3 id="修改ssh-config"><a href="#修改ssh-config" class="headerlink" title="修改ssh config"></a>修改ssh config</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host node1.example.com node2.example.com node3.example.com</span><br><span class="line">    ForwardAgent yes</span><br><span class="line">    User user</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/net_id_rsa</span><br><span class="line">    ProxyCommand ssh -qaY -i ~/.ssh/net_id_rsa -p 1046 user@jump.example.com &apos;nc -w 14400 %h %p&apos;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：我这边从跳板机到被管理节点和mac到跳板机的私钥是一样的，都是 net_id_rsa</p>
-<p>如果不一样，需要修改 IdentityFile 和 ProxyCommand 的 -i 参数</p>
-<p>IdentityFile是跳板机登陆被管理节点使用的私钥文件，ProxyCommand -i 参数使用的私钥是mac登陆跳板机所使用的私钥</p>
-</blockquote>
-<h3 id="修改ansible-inventory"><a href="#修改ansible-inventory" class="headerlink" title="修改ansible inventory"></a>修改ansible inventory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">host file:</span><br><span class="line">[node]</span><br><span class="line">node1 ansible_host=node1.example.com</span><br><span class="line">node2 ansible_host=node2.example.com</span><br><span class="line">node3 ansible_host=node3.example.com</span><br></pre></td></tr></table></figure>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible -i host -m ping</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2017/12/07/ansible-通过跳板机管理远程服务器/" title="ansible 通过跳板机管理远程服务器" target="_blank" rel="external">http://yoursite.com/2017/12/07/ansible-通过跳板机管理远程服务器/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/tian-yuan" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/tian-yuan" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Full Stack Developer &amp; Designer</small></a></h3>
-        <div>个人简介。</div>
-      </div>
-    </figure>
-  </div>
-</div>
-
-
-    </div>
-  </article>
-  
-    
-  <section id="comments">
-  	
-       
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjMwOS84ODcw">
-  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-      
-    
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2017/12/07/pipework-demo/" title="pipework demo"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2017/12/05/consul-deploy/" title="consul deploy">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-  </ul>
-  
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
-  
-  
-  <div class="bar-right">
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-  </div>
-  
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-tit">
-            <p>Thank you for your support, I will continue to work hard!</p>
-          </div>
-          <div class="donate-payimg">
-            <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
-          </div>
-          <p class="text-muted mv">Scan this qrcode</p>
-          <div class="donate-payselect">
-            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/alipayimg.png">
-              <div class="radio">
-                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
-                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="alipay" /></label>
-              </div>
-            </div>
-            <div class="pay_item" data-id="weipay" data-src="/images/donate/weipayimg.png">
-              <div class="radio">
-                <input type="radio" name="payment" id="input-weipay" value="weipay">
-                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="weipay" /></label>
-              </div>
-            </div>
-          </div>
-          <div class="text-grey">
-            <p>Scan this qrcode, you can sweep yards reward oh!</p>
-          </div>
+    <div id="douban">
+      <div id="collections">
+        <div id="reading" class="row hide">
         </div>
+        <div class="clearfix"></div>
+        <div id="wish" class="row hide">
+        </div>
+        <div class="clearfix"></div>
+        <div id="read" class="row hide">
+        </div>
+        <div class="clearfix"></div>
       </div>
     </div>
   </div>
-</div>
+</article>
+
+  
 
 
 
@@ -531,6 +390,155 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
   
     
     
+        <script>
+function show(id) {
+  document.getElementById('reading').classList.remove('active');
+  document.getElementById('read').classList.remove('active');
+  document.getElementById('wish').classList.remove('active');
+  document.getElementById('reading').classList.add('hide');
+  document.getElementById('read').classList.add('hide');
+  document.getElementById('wish').classList.add('hide');
+
+  var ele = document.getElementById(id);
+  ele.classList.remove('hide');
+  ele.classList.add('active');
+
+  document.getElementById('reading-tab').classList.remove('active');
+  document.getElementById('read-tab').classList.remove('active');
+  document.getElementById('wish-tab').classList.remove('active');
+  document.getElementById(id + '-tab').classList.add('active');
+};
+
+(function() {
+  var read = [];
+  var wish = [];
+  var reading = [];
+
+  // XHR 获取豆瓣书单数据，数据格式json
+  // function loadDoubanCollections() {
+  //   var xhr = new XMLHttpRequest();
+  //   // https://api.douban.com/v2/book/user/:name/collections
+  //   xhr.open('GET', 'http://7b1fa0.com1.z0.glb.clouddn.com/douban-20170429-1.json', true);
+
+  //   xhr.onload = function() {
+  //     // console.log(this);
+  //     if (this.status >= 200 && this.status < 300) {
+  //       var res = JSON.parse(this.response);
+  //       searchData = res;
+  //       onLoadDouban(searchData);
+  //     } else {
+  //       console.error(this.statusText);
+  //     }
+  //   };
+
+  //   xhr.onerror = function() {
+  //     console.error(this.statusText);
+  //   };
+
+  //   xhr.send();
+  // }
+  
+  // Ajax 获取豆瓣书单数据，数据格式json
+  function loadDoubanCollections() {
+    var _this = this;
+    // https://api.douban.com/v2/book/user/:name/collections?start=0&count=100
+    var url = "https://api.douban.com/v2/book/user//collections"
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {
+        start:0, // 从哪一条记录开始
+        count:100 // 获取豆瓣书单数据条数
+      },
+      dataType: 'JSONP', //here
+      success: function(data) {
+        // console.log(data);
+        onLoadDouban(data);
+      }
+    });
+  }
+
+  function onLoadDouban(data) {
+    if (data['count'] > 0) {
+      for (var i = 0; i < data['collections'].length; ++i) {
+        resolveBook(data['collections'][i]);
+      }
+    }
+    render();
+  }
+
+  function resolveBook(book) {
+    if (book['status'] == 'read') {
+      read.push(book);
+    }
+    if (book['status'] == 'wish') {
+      wish.push(book);
+    }
+    if (book['status'] == 'reading') {
+      reading.push(book);
+    }
+  }
+
+  function render() {
+    renderList(read, 'read');
+    renderList(wish, 'wish');
+    renderList(reading, 'reading');
+
+    document.getElementById('reading-total').innerHTML = '(' + reading.length + ')';
+    document.getElementById('read-total').innerHTML = '(' + read.length + ')';
+    document.getElementById('wish-total').innerHTML = '(' + wish.length + ')';
+
+    show('reading');
+    document.getElementById('loading').classList.add('hide');
+  }
+
+  function renderList(list, id) {
+    for (var i = 0; i < list.length; ++i) {
+      var h = renderBook(list[i]);
+      if (i > 0 && i % 4 == 3) {
+        h += '<div class="clearfix"></div>';
+      }
+      document.getElementById(id).innerHTML = document.getElementById(id).innerHTML + h;
+    }
+  }
+
+  function renderBook(book) {
+    var html = '<div class="col-sm-6 col-md-6"><div class="panel panel-default"><div class="panel-body">'
+      + '<div class="media media-middle book book-' + book['status'] + '" itemscope itemtype="http://schema.org/Book">' 
+      + '<div class="media-left"><a class="media-middle" target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer"><img class="media-object" src="' + book.book.image + '" itemprop="image"/></a></div><div class="media-body">' 
+      + '<h3 class="media-heading" itemprop="name"><a target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer">' + book.book.title + '</a></h3>' 
+      + '<p class="meta text-nowrap-1x"><small itemprop="author">' + book.book.author[0] + '</small> / <small itemprop="datePublished">' + book.book.pubdate + '</small> / <small itemprop="ratingValue">' + book.book.rating.average + '分</small></p>' 
+      + '<p class="meta text-nowrap-1x">' + book.updated.substring(0, 10) + resolveRating(book.rating) + resolveTags(book.tags) + '</p>' 
+      + '<div class="comments text-muted text-nowrap-3x" itemprop="comment">' + (book.comment ? book.comment : '') + '</div>' 
+      + '</div>' + '</div>' + '</div>' + '</div>' + '</div>';
+    return html;
+  }
+
+  function resolveRating(rating) {
+    if (rating && rating.value) {
+      return ' / ' + rating.value + '星';
+    }
+    return '';
+  }
+
+  function resolveTags(tags) {
+    if (tags && tags.length > 0) {
+      var html = ' / ';
+      for (var i = 0; i < tags.length; ++i) {
+        html += tags[i] + ' ';
+      }
+      return html;
+    }
+    return '';
+  }
+
+  setTimeout(function() {
+    loadDoubanCollections();
+  }, 0)
+})()
+</script>
+
+    
     
         <script>
 (function (window) {
@@ -552,30 +560,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
     
     
-        
-<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-    
-    
-        
-    
-<script defer type="text/javascript">
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-
-    if (typeof LivereTower === 'function') { return; }
-
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
-</script>
-
-
     
     
 
