@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-11T08:42:14.279Z</updated>
+  <updated>2017-12-20T05:56:16.551Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,144 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Network Technologe</title>
+    <link href="http://yoursite.com/2017/12/20/Network-Technologe/"/>
+    <id>http://yoursite.com/2017/12/20/Network-Technologe/</id>
+    <published>2017-12-20T05:55:51.000Z</published>
+    <updated>2017-12-20T05:56:16.551Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Network" scheme="http://yoursite.com/tags/Network/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Network Problem</title>
+    <link href="http://yoursite.com/2017/12/16/Network-Problem/"/>
+    <id>http://yoursite.com/2017/12/16/Network-Problem/</id>
+    <published>2017-12-16T05:43:27.000Z</published>
+    <updated>2017-12-16T05:51:48.697Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文档主要包含网络设置过程中碰到的问题；</p><h3 id="具体问题"><a href="#具体问题" class="headerlink" title="具体问题"></a>具体问题</h3><h4 id="在验证-pipework-过程中出现虚拟机网络不通的情况"><a href="#在验证-pipework-过程中出现虚拟机网络不通的情况" class="headerlink" title="在验证 pipework 过程中出现虚拟机网络不通的情况"></a>在验证 pipework 过程中出现虚拟机网络不通的情况</h4><p>出现这种问题一遍需要查看如下方面的信息</p><ul><li>查看 /etc/resolv.conf，看是否存在 nameserver</li><li>查看网卡是否存在 ip 地址</li><li>检查是否有路由及默认路由</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本文档主要包含网络设置过程中碰到的问题；&lt;/p&gt;
+&lt;h3 id=&quot;具体问题&quot;&gt;&lt;a href=&quot;#具体问题&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="Network" scheme="http://yoursite.com/tags/Network/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ip 转发</title>
+    <link href="http://yoursite.com/2017/12/15/ip-%E8%BD%AC%E5%8F%91/"/>
+    <id>http://yoursite.com/2017/12/15/ip-转发/</id>
+    <published>2017-12-15T05:24:49.000Z</published>
+    <updated>2017-12-15T05:28:03.864Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>​    IP转发的概念是，使 Linux 机器像路由器一样将数据从一个网络发送到另一个网络。所以，它能作为一个<strong>路由器</strong>或者代理服务器，实现将一个连接的互联网或者网络连接共享给多个客户端机器。</p><h3 id="ip-转发使用的场景"><a href="#ip-转发使用的场景" class="headerlink" title="ip 转发使用的场景"></a>ip 转发使用的场景</h3><ul><li>在一台主机上，从一个网卡接收数据包，从另外一个网卡发送出去；</li><li>在一台主机上，从一个网卡接收数据包，发送到本机上的虚拟网桥，docker 需要宿主机开启 ip forward 的原因。</li></ul><blockquote><p><a href="https://linux.cn/article-5595-1.html" target="_blank" rel="noopener">https://linux.cn/article-5595-1.html</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;​    IP转发的概念是，使 Linux 机器像路由器一样将数据从一个网络发送到另一个网络。所以，它能作为一个&lt;strong&gt;路由器&lt;/s
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>dpdk</title>
+    <link href="http://yoursite.com/2017/12/14/dpdk/"/>
+    <id>http://yoursite.com/2017/12/14/dpdk/</id>
+    <published>2017-12-14T10:53:04.000Z</published>
+    <updated>2017-12-14T10:58:21.331Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="京东基于DPDK技术的高性能四层负载均衡器SKYLB"><a href="#京东基于DPDK技术的高性能四层负载均衡器SKYLB" class="headerlink" title="京东基于DPDK技术的高性能四层负载均衡器SKYLB"></a>京东基于DPDK技术的高性能四层负载均衡器SKYLB</h2><p><em>2017-12-14</em> <a href="https://mp.weixin.qq.com/s?__biz=MzA3MzYwNjQ3NA==&amp;mid=2651298697&amp;idx=1&amp;sn=7fb704754c3030f0f96cb234521bb3fc&amp;chksm=84ff4facb388c6ba2cccd57264ace04dcbc0d4ad52f9b1d86d4924c45cf2caf5e4d8d09cfd3c&amp;mpshare=1&amp;scene=1&amp;srcid=1214ndTInIMCexFRCOrCi6kd&amp;key=50702a35c4b93088fdf0e364e09be9b1b1977f10c39cb998efbbe1194f8ea53c9cc0e773d3a4ceeacb9e6d1c6db62c5f3bb2e8f5608c5ed520fa6ac777b78d4ed3e4134928d031a6dd311d620c8a687c&amp;ascene=0&amp;uin=MjExNzcwNTM2Mw%3D%3D&amp;devicetype=iMac+MacBookPro13%2C2+OSX+OSX+10.13.1+build(17B1003" target="_blank" rel="noopener">运维帮</a>&amp;version=12020510&amp;nettype=WIFI&amp;lang=zh_CN&amp;fontScale=100&amp;pass_ticket=sjbsLVBFYdJUQwhHgpMuH%2Fc7beO10%2BvpW6nGbiH97biBdUSXmChx98a6xvqGsrYv##)</p><p><em>作者：京东商城基础平台部</em></p><p><em>已授权运维帮订阅号发布</em></p><p>开源版本近期功能完善后会告知大家，敬请关注运维帮</p><p><strong>摘要</strong></p><p>随着京东业务的高速增长，作为应用入口的负载均衡，大流量大并发带来的挑战越来越严峻。本文主要介绍了京东商城设计和实践的一套高可靠，高性能的负载均衡器，我们命名为SKYLB。是一个使用intel DPDK报文转发库，实现运行在通用X86服务器上自研的分布式负载均衡服务。配合网络路由器的多重等价路由协议（OSPF）或者边际网关协议（BGP），组成承担京东数据中心核心四层负载均衡的集群。最大限度的发挥普通X86服务器硬件资源的性能，实现一套适合于京东商城业务的低成本，分布式，高性能，可扩展的智能负载均衡系统。</p><p><strong>介绍</strong></p><p>京东商城目前是国内最大的电商企业。京东的机房内部的流量爆炸式快速的增长。早在2016年初京东商城已经将所有的业务系统全部迁移到容器平台JDOS，线上百万+容器实例稳定运行。大流量的负载均衡的分配显得至关重要，也是京东商城新一代软件定义数据中心的关键基础服务设施之一。</p><p>负载均衡器一般介于网络上的路由器与后端服务器之间，负责将每个数据包通过一定的服务匹配，将其转发到后端服务器节点。充分考虑到京东商城数据中心全容器及全三层BGP组网的模型。以及基于DPDK的几乎达到网卡限速的性能，我们在设计负载均衡时，仅考虑实现了FULLNAT模式，即出向和入向的流量均通过负载均衡器，基本数据流程图如下图1所示：</p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/tzia4bcY5HEKTM0uOFFicVKI9dwo0ldrLIqjXFe8xzCedwcDxg357iawpWrEsEP4rQuqicqGzykwr0mqhdia4psO2GQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p><p>图1 负载均衡流程图</p><p>一般根据业务及流量的规模的不同阶段来选择使用不同的负载均衡，通常我们在负载均衡的选择上大致有以下两个方向：1)硬件负载均衡，如F5。CitrixNetscaler等；2)软件负载均衡，如基于LVS，Haproxy，Nginx等开源软件来实现的负载均衡。对于上述两种负载均衡的选择，各有优缺点，如下：</p><p>1） 硬件负载均衡</p><p>可扩展性受限，无法跟上业务流量增长的需求。以及如618、双十一大促等瞬间流量高峰。</p><p>虽然可以成对部署避免单点故障，但是一般只能提供1+1冗余。</p><p>缺乏互联网快速迭代的灵活性，升级成本昂贵。</p><p>一般只能根据网络的情况来设定负载均衡，无关乎实际系统和硬件的情况。</p><p>成本较高。</p><p>2） 基于开源软件的负载均衡</p><p>可以根据实际系统和应用的状态来合理的负载，迭代、扩容和部署相对方便。</p><p>单台负载均衡性能相对较差，需要用集群来支撑负载均衡的整体性能。</p><p>性价比较低。</p><p>我们的目标：</p><ol><li>设计实现一套高可靠、高性能、易维护及性价比高的L4负载均衡系统,。</li><li>基于通用X86_64服务器框架，以及支持DPDK网卡硬件，易开发和移植。</li><li>方便部署、删除和维护，集成到京东软件定义数据中心（JDOS2.0）系统，作为京东下一代软件定义数据中心的基础组件。</li><li>负载均衡下的服务器基于系统应用负载流量均摊，负载均衡器提供N+1 冗余，借助OSPF/BGP控制负载均衡器的流量负载。</li><li>基于系统应用级别的探活，自动故障检测及流量快速恢复。</li></ol><p>本文主要介绍了SKYLB一种基于DPDK平台实现的快速可靠的软件网络负载均衡系统。不仅可以快速的横向扩展，还可以最大限度的提升负载均衡单个NIC的处理转发速度，来实现L4的负载均衡。借助DPDK的优势，如便利的多核编程框架、巨页内存管理、无锁队列、无中断poll-mode 网卡驱动、CPU亲和性等等来实现快速的网卡收发及处理报文，后续考虑TCP/IP 用户态协议实现和优化，进而实现L7负载均衡。</p><p><strong>系统概览</strong></p><p>工作场景</p><p>SKYLB部署在京东容器集群JDOS的前端，对于一个应用集群，发布一个或多个VIP到SKYLB服务上，当客户端需要访问应用节资源URL，首先通过域名访问JD智能分布式DNS服务（SKYDNS详见<a href="https://github.com/ipdcode/skydns）" target="_blank" rel="noopener">https://github.com/ipdcode/skydns）</a>, SkyDns会智能返回当前最近且状态正常且负载正常的VIP服务的IP,客户端就会向VIP去请求连接。</p><p>SKYLB节点上运行了一个路由发布服务agent，我们使用该agent与开启OSPF/BGP的路由器做路由交互，当SKYLB的上层路由器接收到请求VIP的数据包时，路由器通过（OSPF/BGP）的等价多路径转发协议选择一个可以使用的发布该VIP的SKYLB节点，将报文转发给一个SKYLB节点。通过这种策略来实现VIP的发布和横向容量负载能力扩展。</p><p>当报文通过上述步骤到达SKYLB负载均衡后，通过常用的负载均衡策略(round robin，一致性hash ，最小连接数)，将数据包送到相应的后端容器服务。</p><p>系统架构</p><p>JingdongDatacenter Operating System(JDOS) 是基于JDOS提供物理机/虚拟机/容器的统一管理系统、配备灵活的网络互连、可靠的分布式共享存储，实现软件定义数据中心的计算资源统一管理和集群管理。通过使用JDOS，可以直接迅速得到任意需要的计算、存储、网络、安全等方面的资源和能力。SKYLB作为整个JDOS系统的一个重要组成部分，负责提供集群的L4负载均衡能力，通过restful API等接口与JDOS系统交互。用户可以通过统一调度管理平台便捷的创建、删除、迁移负载均衡系统。同时多个应用服务进行流量分发的负载均衡服务，从而扩展应用系统对外的服务能力，并且通过消除单点故障提高应用系统的可用性。</p><p>系统的基本架构如下图2所示，每一个集群配备一组可容灾的负载均衡控制中心,主要通过restful api接口负责与JDOS调度中心交互，接收vip的配置请求。同时我们在每一个SKYLB的节点上运行一个代理进程，该代理进程通过gRPC与控制中心连接。接收控制中心下达的创建及删除vip,后端server endpoint服务等一系列指令，通过load balancer 提供的命令行执行相应的指令。接收load balancer 关于流量及报文的监控信息，对于流量及监控进行告警，并且通知控制中心和调度中心进行扩容等操作。</p><p>代理进程同时还负责后端服务 server endpoint基于服务可用性的健康检查，及时根据后端服务的状态通过命令行进行添加和删除的操作。</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图2 系统架构图</p><p>优势</p><p>1）扩展性</p><p>支持动态添加和删除后端服务的容器，实现无缝的伸缩；在伸，缩过程中，对相关调用和访问者无影响。</p><p>2）高可用性</p><p>提供多活负载均衡，有多个VIP，它们对应一个域名，自研DNS服务SKYDNS会根据请求的客户端IP智能解析可用的VIP，返回给用户，从而实现更高的可用性；即使一个VIP不可用，也不会影响业务系统对外提供服务。同时借助OSPF/BGP等协议实现负载均衡的横向扩充</p><p>3）服务能力自动可调</p><p>SKYLB根据VIP实际接收流量的负载需要调整负载均衡的服务能力，比如流量、连接数的控制等指标。</p><p>功能特点</p><p>1）协议支持</p><p>负载均衡支持包含TCP、UDP协议的四层负载均衡，配备健全的链路跟踪机制，以及多种调度策略，用户可以根据服务的需要创建合适自己的负载均衡。</p><p>2）高可用性</p><p>支持容器的健康检查，除传统的IP+Port，并加入对URL检查，保证应用可用性： 健康检查频率可自定义；一旦探测到异常，则不会将流量再分配到这些异常实例，保证应用可用性。</p><p>3）集群部署，多层次容错机制： 负载均衡采用集群部署，支持热升级，机器故障和集群维护对用户完全透明，结合DNS使用还可支持全局负载均衡。</p><p>4）灵活性</p><p>支持多种流量调度算法，使得流量分配更均匀： 负载均衡支持加权轮询和最小连接数这两种调度算法，可根据自身需求选择相应的算法来分配用户访问流量，并支持设置后端容器权重，使得流量调度更均匀，提升负载均衡能力。</p><p>支持会话保持，满足用户个性化需求： 负载均衡通过IP地址实现会话保持，可将一定时间内来自同一用户的访问请求，转发到同一个后端容器上进行处理，从而实现用户访问的连续性。</p><p>5）易用性</p><p>提供多种管理途径，轻松操纵负载均衡： 用户可通过控制台轻松实现负载均衡器的配置、释放等功能。后续会开放标准的API或SDK提供给用户，从而自己开发对负载均衡的控制管理。</p><p><strong>系统设计及技术实现</strong></p><p>负载均衡模式选择</p><p>常用的负载均衡模式有DR，NAT，TUNNEL，FULLNAT。每种模式都有自己的优势和使用场景，业内对每种模式的分析比较文档很多，不再介绍。由于JDOS容器网络需要VLAN隔离，而FULLNAT刚好支持LB和RS跨VLAN通信，结合我们自身容器集群的需求，我们在实现SKYLB时主要考虑支持FULLNAT模式。图3是SKYLB的FULLNAT负载均衡模式中数据包的流向图。SKYLB位于客户端和后端服务之间，对于客户端的请求报文，将目的地址替换成后端服务的地址，源地址替换成SKYLB的本地地址，对于后端服务的响应报文，将目的地址替换成客户端地址，源地址替换成SKYLB的VIP地址。</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图3 FULLNAT模式下SKYLB的数据包流向图</p><p><strong>借助DPDK实现高速转发</strong></p><p>Data Plane DevelopmentKit（DPDK）：是运行在Linux 用户态，实现X86通用平台网络报文快速处理的库和驱动的集合，如下图4所示，其主要特点：</p><p>•  多核编程框架及CPU亲和性</p><p>每个NUMA节点有单独的CPU和本地内存</p><p>CPU访问本地内存速度比访问远端内存快，避免CPU访问远端内存</p><p>注意网卡挂载的NUMA节点巨页内存管理</p><p>•  巨页(HugePage)</p><p>普通内存页面大小4KB，巨页内存页面大小2MB/1GB</p><p>减少页表项数目，降低TLB miss</p><p>使用大页面比使用4K的页面性能提高10%~15%</p><p>零拷贝，报文数据及转发内存零拷贝。</p><p>•  无锁队列</p><p>使用无锁队列，入队出队无需阻塞等待锁资源</p><p>•  poll-mode网卡驱动</p><p>DPDK网卡驱动完全抛弃中断模式，基于轮询方式收包</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图4 DPDK相关模块</p><p><strong>包处理架构实现</strong></p><p>图5是SKYLB基于RTC数据包处理模型实现的架构。SKYLB选择一个核作为控制核，执行命令配置，与内核交换，ARP表维护等任务。其他的核作为工作核，每个工作核轮询网卡的一个RX队列，执行数据包处理任务。SKYLB利用网卡的RSS功能实现客户端请求报文的分流，利用网卡FDIR功能实现后端服务响应报文的分流。SKYLB对报文分流目的是要保证客户端的请求报文和其对应的服务端响应报文到达同一个工作核上。在这个目的达成的前提下，SKYLB的业务实现会简单和高效很多。每个工作核维护一张session表，同于保存客户端和后端服务的连接信息。SKYLB不需要考虑对session表加锁，因为每个工作核的session表都是独立的。</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图5 SKYLB的RTC包处理模型框架图</p><p>我们设计SKYLB每个工作核独占至少一个LIP，并将LIP信息写入网卡配置。图6是网卡对IP报文分流的流程图。图中dst_ip即SKYLB为每个工作核分配的LIP。网卡对后端服务响应报文的目的地址LIP匹配成功，将报文送到绑定的RX队列，没有匹配的报文则可以认为是客户端的请求报文，按RSS流程分配RX队列。</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图6 网卡对IP报文分流过程图</p><p>SKYLB在启动过程中还会为每个物理口创建一个KNI接口，控制核负责轮询KNI接口。该接口主要用于外部程序quagga向路由器发布VIP信息，Agent检查后端服务健康状态。</p><p>SKYLB目前支持的负载均衡调度算法有一致性hash，round robin和最小连接数算法。</p><p>Session五元组，SKYLB采用五元组来实现会话的管理功能，如下图7 所示：</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图7 SKYLB 五元组管理Session</p><p><strong>负载均衡冗余设计</strong></p><p>SKYLB使用BGP或者OSPF的模式组成集群，通过上述协议将数据包散列到集群中各个节点上，保证单台SKYLB故障或者恢复后能动态的将机器添加及删除。其冗余实现设计如下图6所示：</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图8 SKYLB的冗余设计</p><p><strong>性能优化实践</strong></p><p>良好的流程设计是性能提升的关键，这方面的流程涉及和业务相关，缺乏共性，因此不做详细阐述。主要介绍SKYLB性能优化过程中使用的其他优化方法。</p><p>恰当地使用rte_prefetch0()，可以减少cache-miss次数，避免当前函数成为性能热点。性能调优工具perf可以帮助我们分析应该在哪处代码使用预取。例如我们使用perf发现报文处理函数中有一个处代码是性能热点，该代码用于读取新报文的类型字段并判断，分析认为很可能是cache-misses造成的。在进入报文处理函数前使用rte_prefetch0()，有效避免该函数成为热点。</p><p>恰当地使用likely()和unlikely()，可以减少分支预测失败的次数。我们在SKYLB代码的一处分支语句中使用unlikely()优化，性能提升明显。分支预测优化点可以借助perf分析确定，也可以根据自己对代码执行流程的理解确定。</p><p>尽量减少锁的使用。SKYLB中配置信息不经常变化，我们没有单独为每个可能争用的资源加锁，而是只用一把DPDK提供的读写锁，每个读线程在加读锁后，处理一批报文，然后释放读锁。既简化流程，又减少了操作读写锁的开销(DPDK读写锁的开销并不是很大)。</p><p><strong>性能数据</strong></p><p><strong>测试环境：</strong></p><p>CPU：Intel(R) Xeon(R) CPU E5-2640 v3</p><p>NIC：intel 82599ES 10-GigabitSFI/SFP+ Network Connection</p><p><strong>测试配置：</strong></p><p>负载均衡模式：FULLNAT</p><p>调度算法：一致性hash</p><p>配置：CPU占用8核 内存占用4G</p><p><strong>性能测试数据：</strong>  </p><p>1）UDP发包，测试转发性能，我们使用了SKYDNS作为后端服务，客户端采用UDP请求DNS</p><table><thead><tr><th><strong>线程数</strong></th><th><strong>Avg**</strong>（ms）时延**</th><th><strong>TPS**</strong>（笔/秒）**</th><th><strong>错误数</strong></th><th><strong>错误数</strong></th></tr></thead><tbody><tr><td>3000</td><td>1</td><td>4343070</td><td>0</td><td>0.00%</td></tr></tbody></table><p>表1 SKYLB基于UDP的DNS性能测试数据</p><p>​           </p><p>2）NGINX作为后端服务，压测HTTP性能。</p><p>​    配置：CPU占用8核 内存占用4G</p><table><thead><tr><th><strong>线程数</strong></th><th><strong>Avg**</strong>（ms）时延**</th><th><strong>TP99**</strong>（ms）**</th><th><strong>TPS**</strong>（笔/秒）**</th><th><strong>错误数</strong></th><th><strong>错误数</strong></th></tr></thead><tbody><tr><td>1100</td><td>0</td><td>2</td><td>2101170</td><td>0</td><td>0.00%</td></tr></tbody></table><p>表2 SKYLB HTTP性能测试数据</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图9 SKYLB HTTP 性能测试指标图</p><p><img src="/2017/12/14/dpdk/data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p><p>图9 SKYLBhttp 性能测试指标图</p><p><strong>总结</strong></p><p>本文主要介绍了SKYLB，一种的基于intel DPDK平台开发的负载均衡器。其接近网卡线速处理及转发能力，灵活的部署，多样的监控以及可靠的稳定性。基本上覆盖所有4层负载均衡的业务处理需求，配合集群管理以及调度，作为京东数据中心操作系统（JDOS）的一个重要的组成部分，在京东数据中心发挥至关重要的作用。</p><p><strong>参考资料</strong></p><p>Google Maglev：A Fast and Reliable SoftwareNetwork Load Balancer。</p><p>DPDK：<a href="http://dpdk.org/doc/guides/prog_guide/" target="_blank" rel="noopener">http://dpdk.org/doc/guides/prog_guide/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;京东基于DPDK技术的高性能四层负载均衡器SKYLB&quot;&gt;&lt;a href=&quot;#京东基于DPDK技术的高性能四层负载均衡器SKYLB&quot; class=&quot;headerlink&quot; title=&quot;京东基于DPDK技术的高性能四层负载均衡器SKYLB&quot;&gt;&lt;/a&gt;京东基于DPDK
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>docker command operation</title>
+    <link href="http://yoursite.com/2017/12/14/docker-command-operation/"/>
+    <id>http://yoursite.com/2017/12/14/docker-command-operation/</id>
+    <published>2017-12-14T09:00:06.000Z</published>
+    <updated>2017-12-14T09:00:06.477Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>docker 之创建网桥</title>
+    <link href="http://yoursite.com/2017/12/14/docker-%E4%B9%8B%E5%88%9B%E5%BB%BA%E7%BD%91%E6%A1%A5/"/>
+    <id>http://yoursite.com/2017/12/14/docker-之创建网桥/</id>
+    <published>2017-12-14T05:05:26.000Z</published>
+    <updated>2017-12-14T05:17:19.044Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="docker-daemon-创建网桥"><a href="#docker-daemon-创建网桥" class="headerlink" title="docker daemon 创建网桥"></a>docker daemon 创建网桥</h3><p>docker daemon启动时会通过参数创建网桥或者使用已经存在的网桥。</p><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// Create the actual bridge device.  This is more backward-compatible than</span><br><span class="line">// netlink.NetworkLinkAdd and works on RHEL 6.</span><br><span class="line">func CreateBridge(name string, setMacAddr bool) error &#123;</span><br><span class="line">if len(name) &gt;= IFNAMSIZ &#123;</span><br><span class="line">return fmt.Errorf(&quot;Interface name %s too long&quot;, name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s, err := getIfSocket()</span><br><span class="line">if err != nil &#123;</span><br><span class="line">return err</span><br><span class="line">&#125;</span><br><span class="line">defer syscall.Close(s)</span><br><span class="line"></span><br><span class="line">nameBytePtr, err := syscall.BytePtrFromString(name)</span><br><span class="line">if err != nil &#123;</span><br><span class="line">return err</span><br><span class="line">&#125;</span><br><span class="line">if _, _, err := syscall.Syscall(syscall.SYS_IOCTL, uintptr(s), SIOC_BRADDBR, uintptr(unsafe.Pointer(nameBytePtr))); err != 0 &#123;</span><br><span class="line">return err</span><br><span class="line">&#125;</span><br><span class="line">if setMacAddr &#123;</span><br><span class="line">return setBridgeMacAddress(s, name)</span><br><span class="line">&#125;</span><br><span class="line">return nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>从实现代码可以看出，docker 是使用系统调用 syscall 创建网桥；</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;docker-daemon-创建网桥&quot;&gt;&lt;a href=&quot;#docker-daemon-创建网桥&quot; class=&quot;headerlink&quot; title=&quot;docker daemon 创建网桥&quot;&gt;&lt;/a&gt;docker daemon 创建网桥&lt;/h3&gt;&lt;p&gt;docker
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vpc introduce</title>
+    <link href="http://yoursite.com/2017/12/12/vpc-introduce/"/>
+    <id>http://yoursite.com/2017/12/12/vpc-introduce/</id>
+    <published>2017-12-12T09:46:44.000Z</published>
+    <updated>2017-12-12T09:47:12.643Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="VPC-兴起的背景"><a href="#VPC-兴起的背景" class="headerlink" title="VPC 兴起的背景"></a>VPC 兴起的背景</h3><p>随着云计算的不断发展，对虚拟化网络的要求越来越高，比如网络的弹性（scalability）、安全性（security）、可靠性（reliability）以及私密性（privacy）等，并且还要求具有极高的互联性能（performance），因此催生了多种多样的网络虚拟化技术。</p><p>比较早的解决方案，是将虚拟机的网络和物理网络融合在一起，形成一个扁平的网络架构，例如大二层网络。随着虚拟化网络规模的扩大，这种方案中的 ARP 欺骗、广播风暴、主机扫描等问题会越来越严重。为了解决这些问题，出现了各种网络隔离技术，把物理网络和虚拟网络彻底隔开。其中一种技术是用户之间用 VLAN 进行隔离，但是 VLAN 的数量最大只能支持到 4096 个，无法支撑公共云的巨大用户量。</p><h3 id="VPC-原理描述"><a href="#VPC-原理描述" class="headerlink" title="VPC 原理描述"></a>VPC 原理描述</h3><p>基于目前主流的隧道技术，专有网络（Virtual Private Cloud，简称VPC）隔离了虚拟网络。每个 VPC 都有一个独立的隧道号，一个隧道号对应着一张虚拟化网络。一个 VPC 内的 ECS 之间的传输数据包都会加上隧道封装，带有唯一的隧道 ID 标识，然后送到物理网络上进行传输。不同 VPC 内的 ECS 因为所在的隧道 ID 不同，本身处于两个不同的路由平面，所以不同 VPC 内的 ECS 无法进行通信，天然地进行了隔离。</p><h3 id="VPC-逻辑框架"><a href="#VPC-逻辑框架" class="headerlink" title="VPC 逻辑框架"></a>VPC 逻辑框架</h3><p>VPC 包含交换机、网关和控制器三个重要的组件。</p><p>交换机和网关组成了数据通路的关键路径，控制器使用自研的协议下发转发表到网关和交换机，完成了配置通路的关键路径。整体架构里面，配置通路和数据通路互相分离。</p><p>交换机是分布式的结点，网关和控制器都是集群部署并且是多机房互备的，并且所有链路上都有冗余容灾，提升了 VPC 产品的整体可用性。</p><p>在产品上，除了给您一张独立的虚拟化网络，腾讯云还为每个 VPC 提供了独立的路由器、交换机组件，让您可以更加丰富地进行组网。</p><p>针对内网安全需求，您可以使用安全组功能在一个 VPC 内进行更加细粒度的访问控制和隔离。缺省情况下，VPC 内的 ECS 只能和本 VPC 内其它 ECS 或其它云服务之间进行通信。此外，您可以使用阿里云提供的和 VPC 相关的产品，比如弹性公网 IP 和高速通道，使 VPC 可以和 Internet、其它 VPC、本地自有的网络（如用户办公网络、用户数据中心）之间进行通信。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;VPC-兴起的背景&quot;&gt;&lt;a href=&quot;#VPC-兴起的背景&quot; class=&quot;headerlink&quot; title=&quot;VPC 兴起的背景&quot;&gt;&lt;/a&gt;VPC 兴起的背景&lt;/h3&gt;&lt;p&gt;随着云计算的不断发展，对虚拟化网络的要求越来越高，比如网络的弹性（scalabili
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>kafka design</title>
@@ -64,7 +202,7 @@
     <link href="http://yoursite.com/2017/12/07/pipework-demo/"/>
     <id>http://yoursite.com/2017/12/07/pipework-demo/</id>
     <published>2017-12-07T12:58:07.000Z</published>
-    <updated>2017-12-08T10:57:01.009Z</updated>
+    <updated>2017-12-16T05:45:26.135Z</updated>
     
     <content type="html"><![CDATA[<h3 id="pipework-demo"><a href="#pipework-demo" class="headerlink" title="pipework demo"></a>pipework demo</h3><p>主机A地址为10.10.101.105/24,网关为10.10.101.254,需要给Docker容器的地址配置为10.10.101.150/24。在主机A上做如下操作：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#安装pipework</span><br><span class="line">git clone https://github.com/jpetazzo/pipework</span><br><span class="line">cp ~/pipework/pipework /usr/local/bin/</span><br><span class="line">#启动Docker容器。</span><br><span class="line">docker run -itd --name test1 ubuntu /bin/bash</span><br><span class="line">#配置容器网络，并连到网桥br0上。网关在IP地址后面加@指定。</span><br><span class="line">#若主机环境中存在dhcp服务器，也可以通过dhcp的方式获取IP</span><br><span class="line">#pipework br0 test1 dhcp</span><br><span class="line">pipework br0 test1 10.10.101.150/24@10.10.101.254</span><br><span class="line">#将主机eth0桥接到br0上，并把eth0的IP配置在br0上。这里由于是远程操作，中间网络会断掉，所以放在一条命令中执行。</span><br><span class="line">#将主机eth0桥接到br0上，eth0就成了虚拟网桥br0的一部分。</span><br><span class="line">ip addr add 10.10.101.105/24 dev br0; \</span><br><span class="line">    ip addr del 10.10.101.105/24 dev eth0; \</span><br><span class="line">    brctl addif br0 eth0; \</span><br><span class="line">    ip route del default; \</span><br><span class="line">    ip route add default gw 10.10.101.254 dev br0</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#创建br0网桥</span><br><span class="line">#若ovs开头，则创建OVS网桥 ovs-vsctl add-br ovs*</span><br><span class="line">#IFNAME=br0</span><br><span class="line">brctl addbr $IFNAME</span><br><span class="line">#创建veth pair,用于连接容器和br0</span><br><span class="line">#LOCAL_IFNAME=eh0 GUEST_IFNAME=eth1</span><br><span class="line">ip link add name $LOCAL_IFNAME mtu $MTU type veth peer name $GUEST_IFNAME mtu $MTU</span><br><span class="line">#找到Docker容器test1在主机上的PID,创建容器网络命名空间的软连接</span><br><span class="line">#GUESTNAME=test1</span><br><span class="line">DOCKERPID=$(docker inspect --format=&apos;&#123;&#123; .State.Pid &#125;&#125;&apos; $GUESTNAME)</span><br><span class="line">ln -s /proc/$NSPID/ns/net /var/run/netns/$NSPID</span><br><span class="line">#将veth pair一端放入Docker容器中，并设置正确的名字eth1</span><br><span class="line">#CONTAINER_IFNAME=eth1</span><br><span class="line">#把$GUEST_IFNAME添加到$NSPID网络命名空间中，也就是虚拟网络环境</span><br><span class="line">ip link set $GUEST_IFNAME netns $NSPID</span><br><span class="line">ip netns exec $NSPID ip link set $GUEST_IFNAME name $CONTAINER_IFNAME</span><br><span class="line">#将veth pair另一端加入网桥</span><br><span class="line">#若为OVS网桥则为 ovs-vsctl add-port $IFNAME $LOCAL_IFNAME $&#123;VLAN:+&quot;tag=$VLAN&quot;&#125;</span><br><span class="line">brctl addif $IFNAME $LOCAL_IFNAME</span><br><span class="line">#为新增加的容器配置IP和路由</span><br><span class="line">#GATEWAY=10.10.101.254</span><br><span class="line">ip netns exec $NSPID ip addr add $IPADDR dev $CONTAINER_IFNAME</span><br><span class="line">ip netns exec $NSPID ip link set $CONTAINER_IFNAME up</span><br><span class="line">ip netns exec $NSPID ip route delete default</span><br><span class="line">ip netns exec $NSPID ip route add $GATEWAY/32 dev $CONTAINER_IFNAME</span><br></pre></td></tr></table></figure><ol><li>首先pipework检查是否存在br0网桥，若不存在，就自己创建。若以”ovs”开头，就会创建OpenVswitch网桥，以”br”开头，创建Linux bridge。</li><li>创建veth pair设备，用于为容器提供网卡并连接到br0网桥。</li><li>使用docker inspect找到容器在主机中的PID，然后通过PID将容器的网络命名空间链接到/var/run/netns/目录下。这么做的目的是，方便在主机上使用ip netns命令配置容器的网络。因为，在Docker容器中，我们没有权限配置网络环境。</li><li>将之前创建的veth pair设备分别加入容器和网桥中。在容器中的名称默认为eth1，可以通过pipework的-i参数修改该名称。</li><li>然后就是配置新网卡的IP。若在IP地址的后面加上网关地址，那么pipework会重新配置默认路由。这样容器通往外网的流量会经由新配置的eth1出去，而不是通过eth0和docker0。(若想完全抛弃自带的网络设置，在启动容器的时候可以指定–net=none)</li></ol><h1 id="ip-netns相关命令"><a href="#ip-netns相关命令" class="headerlink" title="ip netns相关命令"></a>ip netns相关命令</h1><ul><li>增加虚拟网络命名空间</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns add net0</span><br></pre></td></tr></table></figure><ul><li>显示所有的虚拟网络命名空间</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ip netns list</span><br><span class="line"></span><br><span class="line">net0</span><br></pre></td></tr></table></figure><p>也可通过查看/var/run/netns目录下的文件来list</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ls /var/run/netns/</span><br><span class="line"></span><br><span class="line">net0</span><br></pre></td></tr></table></figure><ul><li>进入虚拟机网络环境</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 `command`</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">如</span><br><span class="line"></span><br><span class="line">EULER:~ # ip netns exec net0 bash  #打开虚拟网络环境net0的bash窗口</span><br><span class="line"></span><br><span class="line">EULER:~ # ip addr #显示所有虚拟网络环境的设备</span><br><span class="line"></span><br><span class="line">EULER:~ # exit #退出该网络虚拟环境</span><br><span class="line"></span><br><span class="line">exit</span><br></pre></td></tr></table></figure><ul><li>增加一对veth虚拟网卡</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EULER:~ # ip link add type veth</span><br></pre></td></tr></table></figure><ul><li>将veth0添加到net0虚拟网络环境</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip link set veth0 netns net0</span><br></pre></td></tr></table></figure><ul><li>将虚拟网卡veth1改名并添加到net1虚拟网络环境中</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip link set dev veth1 name net1-bridge netns net1</span><br></pre></td></tr></table></figure><ul><li>设置虚拟网络环境net0的veth0设备处于激活状态</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 ip link set veth0 up</span><br></pre></td></tr></table></figure><ul><li>为虚拟网络环境net0的veth0设备增加IP地址</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip netns exec net0 ip address add 10.0.1.1/24 dev veth0</span><br></pre></td></tr></table></figure><h3 id="在操作过程中遇到的问题"><a href="#在操作过程中遇到的问题" class="headerlink" title="在操作过程中遇到的问题"></a>在操作过程中遇到的问题</h3><ul><li><p>添加路由时的错误</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route add default gw 10.211.55.1 dev eth0</span><br><span class="line">Error: either &quot;to&quot; is duplicate, or &quot;gw&quot; is a garbage.</span><br></pre></td></tr></table></figure><p>需要修改成：</p><p>ip route add 10.221.55.0/24 via 10.211.55.1 dev eth0</p></li></ul>]]></content>
     
@@ -77,6 +215,8 @@
     
     </summary>
     
+    
+      <category term="Network" scheme="http://yoursite.com/tags/Network/"/>
     
   </entry>
   
