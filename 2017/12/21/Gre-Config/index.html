@@ -16,19 +16,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>vpc introduce | Hexo</title>
-  <meta name="description" content="VPC 兴起的背景随着云计算的不断发展，对虚拟化网络的要求越来越高，比如网络的弹性（scalability）、安全性（security）、可靠性（reliability）以及私密性（privacy）等，并且还要求具有极高的互联性能（performance），因此催生了多种多样的网络虚拟化技术。 比较早的解决方案，是将虚">
+  <title>Gre Config | Hexo</title>
+  <meta name="description" content="配置GRE隧道    **推荐 转自: http://blog.51cto.com/supercisco/293313  一、拓扑图：  二、配置及说明： 1、配置三台路由器的IP地址。并且在R1和R3配置默认路由，确保广域网链路能够通信：  1234567891011121314151617R1(config-lin">
+<meta name="keywords" content="Network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vpc introduce">
-<meta property="og:url" content="http://yoursite.com/2017/12/12/vpc-introduce/index.html">
+<meta property="og:title" content="Gre Config">
+<meta property="og:url" content="http://yoursite.com/2017/12/21/Gre-Config/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="VPC 兴起的背景随着云计算的不断发展，对虚拟化网络的要求越来越高，比如网络的弹性（scalability）、安全性（security）、可靠性（reliability）以及私密性（privacy）等，并且还要求具有极高的互联性能（performance），因此催生了多种多样的网络虚拟化技术。 比较早的解决方案，是将虚拟机的网络和物理网络融合在一起，形成一个扁平的网络架构，例如大二层网络。随着虚拟">
-<meta property="og:updated_time" content="2017-12-12T09:47:12.643Z">
+<meta property="og:description" content="配置GRE隧道    **推荐 转自: http://blog.51cto.com/supercisco/293313  一、拓扑图：  二、配置及说明： 1、配置三台路由器的IP地址。并且在R1和R3配置默认路由，确保广域网链路能够通信：  1234567891011121314151617R1(config-line)#int s1/1R1(config-if)#no shR1(config-">
+<meta property="og:image" content="http://blog.51cto.com/attachment/201004/201004101270863537280.jpg">
+<meta property="og:updated_time" content="2017-12-21T05:35:57.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vpc introduce">
-<meta name="twitter:description" content="VPC 兴起的背景随着云计算的不断发展，对虚拟化网络的要求越来越高，比如网络的弹性（scalability）、安全性（security）、可靠性（reliability）以及私密性（privacy）等，并且还要求具有极高的互联性能（performance），因此催生了多种多样的网络虚拟化技术。 比较早的解决方案，是将虚拟机的网络和物理网络融合在一起，形成一个扁平的网络架构，例如大二层网络。随着虚拟">
+<meta name="twitter:title" content="Gre Config">
+<meta name="twitter:description" content="配置GRE隧道    **推荐 转自: http://blog.51cto.com/supercisco/293313  一、拓扑图：  二、配置及说明： 1、配置三台路由器的IP地址。并且在R1和R3配置默认路由，确保广域网链路能够通信：  1234567891011121314151617R1(config-line)#int s1/1R1(config-if)#no shR1(config-">
+<meta name="twitter:image" content="http://blog.51cto.com/attachment/201004/201004101270863537280.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2017/12/12/vpc-introduce/index.html">
+  <link rel="canonical" href="http://yoursite.com/2017/12/21/Gre-Config/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -344,14 +347,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-vpc-introduce" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Gre-Config" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      vpc introduce
+      Gre Config
     </h1>
   
 
@@ -359,12 +362,17 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="fa fa-calendar-check-o"></i>
-	<a href="/2017/12/12/vpc-introduce/" class="article-date">
-	  <time datetime="2017-12-12T09:46:44.000Z" itemprop="datePublished">2017-12-12</time>
+	<a href="/2017/12/21/Gre-Config/" class="article-date">
+	  <time datetime="2017-12-21T05:28:12.000Z" itemprop="datePublished">2017-12-21</time>
 	</a>
 </span>
         
         
+  <span class="article-tag">
+    <i class="fa fa-tag"></i>
+	<a class="article-tag-link" href="/tags/Network/">Network</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -375,21 +383,45 @@
 	</span>
 
 
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/12/vpc-introduce/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/21/Gre-Config/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
       
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h3 id="VPC-兴起的背景"><a href="#VPC-兴起的背景" class="headerlink" title="VPC 兴起的背景"></a>VPC 兴起的背景</h3><p>随着云计算的不断发展，对虚拟化网络的要求越来越高，比如网络的弹性（scalability）、安全性（security）、可靠性（reliability）以及私密性（privacy）等，并且还要求具有极高的互联性能（performance），因此催生了多种多样的网络虚拟化技术。</p>
-<p>比较早的解决方案，是将虚拟机的网络和物理网络融合在一起，形成一个扁平的网络架构，例如大二层网络。随着虚拟化网络规模的扩大，这种方案中的 ARP 欺骗、广播风暴、主机扫描等问题会越来越严重。为了解决这些问题，出现了各种网络隔离技术，把物理网络和虚拟网络彻底隔开。其中一种技术是用户之间用 VLAN 进行隔离，但是 VLAN 的数量最大只能支持到 4096 个，无法支撑公共云的巨大用户量。</p>
-<h3 id="VPC-原理描述"><a href="#VPC-原理描述" class="headerlink" title="VPC 原理描述"></a>VPC 原理描述</h3><p>基于目前主流的隧道技术，专有网络（Virtual Private Cloud，简称VPC）隔离了虚拟网络。每个 VPC 都有一个独立的隧道号，一个隧道号对应着一张虚拟化网络。一个 VPC 内的 ECS 之间的传输数据包都会加上隧道封装，带有唯一的隧道 ID 标识，然后送到物理网络上进行传输。不同 VPC 内的 ECS 因为所在的隧道 ID 不同，本身处于两个不同的路由平面，所以不同 VPC 内的 ECS 无法进行通信，天然地进行了隔离。</p>
-<h3 id="VPC-逻辑框架"><a href="#VPC-逻辑框架" class="headerlink" title="VPC 逻辑框架"></a>VPC 逻辑框架</h3><p>VPC 包含交换机、网关和控制器三个重要的组件。</p>
-<p>交换机和网关组成了数据通路的关键路径，控制器使用自研的协议下发转发表到网关和交换机，完成了配置通路的关键路径。整体架构里面，配置通路和数据通路互相分离。</p>
-<p>交换机是分布式的结点，网关和控制器都是集群部署并且是多机房互备的，并且所有链路上都有冗余容灾，提升了 VPC 产品的整体可用性。</p>
-<p>在产品上，除了给您一张独立的虚拟化网络，腾讯云还为每个 VPC 提供了独立的路由器、交换机组件，让您可以更加丰富地进行组网。</p>
-<p>针对内网安全需求，您可以使用安全组功能在一个 VPC 内进行更加细粒度的访问控制和隔离。缺省情况下，VPC 内的 ECS 只能和本 VPC 内其它 ECS 或其它云服务之间进行通信。此外，您可以使用阿里云提供的和 VPC 相关的产品，比如弹性公网 IP 和高速通道，使 VPC 可以和 Internet、其它 VPC、本地自有的网络（如用户办公网络、用户数据中心）之间进行通信。</p>
+        <h1 id="配置GRE隧道-推荐"><a href="#配置GRE隧道-推荐" class="headerlink" title="配置GRE隧道    **推荐"></a>配置GRE隧道    **推荐</h1><blockquote>
+<p>转自: <a href="http://blog.51cto.com/supercisco/293313" target="_blank" rel="noopener">http://blog.51cto.com/supercisco/293313</a></p>
+</blockquote>
+<p>一、拓扑图：</p>
+<p><img src="http://blog.51cto.com/attachment/201004/201004101270863537280.jpg" alt="img"></p>
+<p>二、配置及说明：</p>
+<p>1、配置三台路由器的IP地址。并且在R1和R3配置默认路由，确保广域网链路能够通信：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">R1(config-line)#int s1/1</span><br><span class="line">R1(config-if)#no sh</span><br><span class="line">R1(config-if)#ip add 202.101.172.37 255.255.255.252</span><br><span class="line">R1(config-if)#int lo0</span><br><span class="line">R1(config-if)#ip add 172.16.1.1 255.255.255.0</span><br><span class="line">R1(config-if)#ip add 172.16.2.1 255.255.255.0 se</span><br><span class="line">R1(config-if)#exit</span><br><span class="line">R1(config)#ip route 0.0.0.0 0.0.0.0 202.101.172.38 (配置一条默认路由)</span><br><span class="line"> </span><br><span class="line">R3(config-line)#int s1/0</span><br><span class="line">R3(config-if)#no sh</span><br><span class="line">R3(config-if)#ip add 218.108.248.202 255.255.255.252</span><br><span class="line">R3(config-if)#int lo0</span><br><span class="line">R3(config-if)#ip add 192.168.1.1 255.255.255.0</span><br><span class="line">R3(config-if)#ip add 192.168.2.1 255.255.255.0 se</span><br><span class="line">R3(config-if)#exit</span><br><span class="line">R3(config)#ip route 0.0.0.0 0.0.0.0 218.108.248.201</span><br></pre></td></tr></table></figure>
+<p>2、配置完之后，在R1 能够ping 通R3的WAN口：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#do ping 218.108.248.202</span><br><span class="line"> </span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 218.108.248.202, timeout is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 12/27/64 ms</span><br></pre></td></tr></table></figure>
+<p>3、由于R2中没有到达私有网络的路由，在R1或R3都不能ping 通各自的回环接口IP：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#do ping 192.168.1.1</span><br><span class="line"> </span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:</span><br><span class="line">U.U.U</span><br><span class="line">Success rate is 0 percent (0/5)</span><br><span class="line">R1(config)#</span><br></pre></td></tr></table></figure>
+<p>4、满足条件之后，下面分别在R1和R3上通过GRE隧道技术把路由打通：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#interface tunnel 0 （启用GRE隧道）</span><br><span class="line">R1(config-if)#ip add 10.1.1.1 255.255.255.0 （为隧道配置IP地址）</span><br><span class="line">R1(config-if)#tunnel source serial1/1（配置隧道的本地源端口）</span><br><span class="line">R1(config-if)#tunnel destination 218.108.248.202 （配置隧道的目标出口，目的IP的可达性，是通过之前配置的本地默认路由保证的）</span><br><span class="line"> </span><br><span class="line">R3(config)#int tunnel 0</span><br><span class="line">R3(config-if)#ip add 10.1.1.2 255.255.255.0</span><br><span class="line">R3(config-if)#tunnel source  218.108.248.202 （也可以指定隧道本地源IP）</span><br><span class="line">R3(config-if)#tunnel destination 202.101.172.37</span><br></pre></td></tr></table></figure>
+<p>5、R3配置完之后，马上就出来提示信息：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">R3(config-if)#</span><br><span class="line">*Mar  1 01:06:52.095: %LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel0, changed state to up</span><br></pre></td></tr></table></figure>
+<p>6、在R1上查看一下隧道接口信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">R1#sh interfaces tunnel0</span><br><span class="line">Tunnel0 is up, line protocol is up  （状态为UP）</span><br><span class="line">  Hardware is Tunnel （基于隧道的接口）</span><br><span class="line">  Internet address is 10.1.1.1/24</span><br><span class="line">  MTU 1514 bytes, BW 9 Kbit, DLY 500000 usec,</span><br><span class="line">     reliability 255/255, txload 1/255, rxload 1/255</span><br><span class="line">  Encapsulation TUNNEL, loopback not set （在原始的数据包上再封装了一个GRE报头）</span><br><span class="line">  Keepalive not set</span><br><span class="line">  Tunnel source 202.101.172.37 (Serial1/1), destination 218.108.248.202</span><br><span class="line">  Tunnel protocol/transport GRE/IP （隧道协议为GRE）</span><br><span class="line">    Key disabled, sequencing disabled</span><br><span class="line">    Checksumming of packets disabled</span><br><span class="line">  Tunnel TTL 255</span><br><span class="line">  ………………</span><br></pre></td></tr></table></figure>
+<p>7、查看一下R1的路由表：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">R1#sh ip route</span><br><span class="line">…………</span><br><span class="line"> </span><br><span class="line">Gateway of last resort is 202.101.172.38 to network 0.0.0.0</span><br><span class="line"> </span><br><span class="line">     202.101.172.0/30 is subnetted, 1 subnets</span><br><span class="line">C       202.101.172.36 is directly connected, Serial1/1</span><br><span class="line">     172.16.0.0/24 is subnetted, 2 subnets</span><br><span class="line">C       172.16.1.0 is directly connected, Loopback0</span><br><span class="line">C       172.16.2.0 is directly connected, Loopback0</span><br><span class="line">     10.0.0.0/24 is subnetted, 1 subnets</span><br><span class="line">C       10.1.1.0 is directly connected, Tunnel0 （显示隧道接口为直连路由）</span><br><span class="line">S*   0.0.0.0/0 [1/0] via 202.101.172.38 （之前配置的默认路由）</span><br></pre></td></tr></table></figure>
+<p>8、在R1上能够ping 通隧道地址：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">R1#ping 10.1.1.2</span><br><span class="line"> </span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 10.1.1.2, timeout is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 12/34/68 ms</span><br><span class="line">R1#</span><br></pre></td></tr></table></figure>
+<p>9、为了使R1和R3的loopback 地址能够通信，我们在R1和R3分别配置静态路由，下一跳指向隧道接口：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#ip route 192.168.0.0 255.255.0.0 tunnel 0 （下一跳可以指定隧道接口）</span><br><span class="line"> </span><br><span class="line">R3(config)#ip route 172.16.0.0 255.255.0.0 10.1.1.1  （也可以指定隧道接口对端的IP）</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 这里设置的是 192.168.0.0 的路由走的是 GRE 端口，如果是访问其他网段，不会走 GRE</p>
+</blockquote>
+<p>10、在R1或R3再次ping ，检查是否能ping 通对方私有网络回环接口IP地址：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#do ping 192.168.1.1</span><br><span class="line"> </span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.1.1, timeout is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 8/38/108 ms</span><br><span class="line">R1(config)#do ping 192.168.2.1</span><br><span class="line"> </span><br><span class="line">Type escape sequence to abort.</span><br><span class="line">Sending 5, 100-byte ICMP Echos to 192.168.2.1, timeout is 2 seconds:</span><br><span class="line">!!!!!</span><br><span class="line">Success rate is 100 percent (5/5), round-trip min/avg/max = 8/36/84 ms</span><br><span class="line">R1(config)#</span><br></pre></td></tr></table></figure>
+<p>11、当然我们还可以查看一下tunnl 0的统计数据：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">R1#sh interface tunnel 0 stats</span><br><span class="line">Tunnel0</span><br><span class="line">          Switching path    Pkts In   Chars In   Pkts Out  Chars Out</span><br><span class="line">               Processor         30       3720         30       3720</span><br><span class="line">             Route cache          0          0          0          0</span><br><span class="line">                   Total         30       3720         30       3720</span><br></pre></td></tr></table></figure>
+<p>   注意：在配置隧道的时候一定要注意隧道的本地源端口和隧道的目的端口的路由可达性。</p>
 
       
     </div>
@@ -399,7 +431,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2017/12/12/vpc-introduce/" title="vpc introduce" target="_blank" rel="external">http://yoursite.com/2017/12/12/vpc-introduce/</a>
+      <a href="http://yoursite.com/2017/12/21/Gre-Config/" title="Gre Config" target="_blank" rel="external">http://yoursite.com/2017/12/21/Gre-Config/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -450,12 +482,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2017/12/14/docker-之创建网桥/" title="docker 之创建网桥"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
+      <a href="/2017/12/22/Https-Certification-Erro/" title="Https Certification Erro"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
     </li>
     
     
     <li class="next">
-      <a href="/2017/12/11/kafka-design/" title="kafka design">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/12/21/Mac-Arp-Route-Table/" title="Mac Arp Route Table">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
     </li>
     
   </ul>
