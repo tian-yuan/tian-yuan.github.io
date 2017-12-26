@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>RIP Protocol | Hexo</title>
+  <meta name="description" content="RIP 协议介绍​    RIP是Routing Information Protocol（路由信息协议）的简称，它是一种较为简单的内部网关协议（Interior Gateway Protocol）。 ​    RIP是一种基于距离矢量（Distance-Vector）算法的协议，它使用跳数（Hop Count）作为度">
+<meta name="keywords" content="Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RIP Protocol">
+<meta property="og:url" content="http://yoursite.com/2017/12/25/RIP-Protocol/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="RIP 协议介绍​    RIP是Routing Information Protocol（路由信息协议）的简称，它是一种较为简单的内部网关协议（Interior Gateway Protocol）。 ​    RIP是一种基于距离矢量（Distance-Vector）算法的协议，它使用跳数（Hop Count）作为度量来衡量到达目的网络的距离。设备到与他直连网络的设备跳数为0，然后每经过一个三层">
+<meta property="og:image" content="http://yoursite.com/2017/12/25/RIP-Protocol/RIP-Protocol/example.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/25/RIP-Protocol/RIP-Protocol/gre-rip.png">
+<meta property="og:updated_time" content="2017-12-26T05:41:33.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RIP Protocol">
+<meta name="twitter:description" content="RIP 协议介绍​    RIP是Routing Information Protocol（路由信息协议）的简称，它是一种较为简单的内部网关协议（Interior Gateway Protocol）。 ​    RIP是一种基于距离矢量（Distance-Vector）算法的协议，它使用跳数（Hop Count）作为度量来衡量到达目的网络的距离。设备到与他直连网络的设备跳数为0，然后每经过一个三层">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/25/RIP-Protocol/RIP-Protocol/example.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2017/12/25/RIP-Protocol/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/tian-yuan" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Full Stack Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="fa fa-map-marker"></i> Hangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <!-- <span class="ins-close ins-selectable"><i class="fa fa-times"></i></span> -->
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="fa fa-fw fa-dashboard"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="fa fa-fw fa-delicious"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="fa fa-fw fa-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="fa fa-fw fa-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="fa fa-fw fa-code"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="fa fa-fw fa-leanpub"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="fa fa-fw fa-gg"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="fa fa-fw fa-coffee"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/tian-yuan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="fa fa-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            
+            <p>您好，您是第<span id="busuanzi_value_site_uv">0</span>位访客</p>
+            
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Security/">Security</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Network/" style="font-size: 14px;">Network</a> <a href="/tags/Security/" style="font-size: 13px;">Security</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/25/RIP-Protocol/" class="title">RIP Protocol</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-25T11:16:33.000Z" itemprop="datePublished">2017-12-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/22/Https-Certification-Erro/" class="title">Https Certification Erro</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-22T03:42:58.000Z" itemprop="datePublished">2017-12-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/21/Gre-Config/" class="title">Gre Config</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-21T05:28:12.000Z" itemprop="datePublished">2017-12-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/21/Mac-Arp-Route-Table/" class="title">Mac Arp Route Table</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-21T05:01:51.000Z" itemprop="datePublished">2017-12-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2017/12/20/Network-Technologe/" class="title">Network Technologe</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-12-20T05:55:51.000Z" itemprop="datePublished">2017-12-20</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-RIP-Protocol" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RIP Protocol
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2017/12/25/RIP-Protocol/" class="article-date">
+	  <time datetime="2017-12-25T11:16:33.000Z" itemprop="datePublished">2017-12-25</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="fa fa-tag"></i>
+	<a class="article-tag-link" href="/tags/Network/">Network</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="fa fa-eye" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/25/RIP-Protocol/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+      
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h3 id="RIP-协议介绍"><a href="#RIP-协议介绍" class="headerlink" title="RIP 协议介绍"></a>RIP 协议介绍</h3><p>​    RIP是Routing Information Protocol（路由信息协议）的简称，它是一种较为简单的内部网关协议（Interior Gateway Protocol）。</p>
+<p>​    RIP是一种基于距离矢量（Distance-Vector）算法的协议，它使用跳数（Hop Count）作为度量来衡量到达目的网络的距离。设备到与他直连网络的设备跳数为0，然后每经过一个三层设备跳数增加1，也就是度量值等于从本网络到达目网络间的三层设备数量，但并不等于所经过的网段数RIP通过UDP报文进行路由信息的交换，使用的端口号为520。所以它又是一个不可靠的路由协议。由于RIP的实现较为简单，在配置和维护管理方面也远比OSPF和IS-IS容易，因此RIP主要应用于规模较小的网络中，例如校园网以及结构较简单的地区性网络。对于更为复杂的环境和大型网络，一般不使用RIP协议。</p>
+<h3 id="RIP-协议原理"><a href="#RIP-协议原理" class="headerlink" title="RIP 协议原理"></a>RIP 协议原理</h3><p>​    每隔30秒会与相邻的路由器交换子讯息，以动态的建立<a href="https://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8" target="_blank" rel="noopener">路由表</a>。</p>
+<h3 id="RIP-封装格式"><a href="#RIP-封装格式" class="headerlink" title="RIP 封装格式"></a>RIP 封装格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">0                   1                   2                   3</span><br><span class="line">0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">| command (1)   | version (1)   |      must be zero (2)         |</span><br><span class="line">+---------------+---------------+-------------------------------+</span><br><span class="line">| address family identifier (2) |      must be zero (2)         |</span><br><span class="line">+-------------------------------+-------------------------------+</span><br><span class="line">|                         IP address (4)                        |</span><br><span class="line">+---------------------------------------------------------------+</span><br><span class="line">|                        must be zero (4)                       |</span><br><span class="line">+---------------------------------------------------------------+</span><br><span class="line">|                        must be zero (4)                       |</span><br><span class="line">+---------------------------------------------------------------+</span><br><span class="line">|                          metric (4)                           |</span><br><span class="line">+---------------------------------------------------------------+</span><br></pre></td></tr></table></figure>
+<p>RIP规定度量值取0~15之间的整数，大于或等于16的跳数被定义为无穷大。</p>
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>目前RIP共有三个版本，RIPv1、RIPv2、RIPng。</p>
+<h3 id="RIPv1"><a href="#RIPv1" class="headerlink" title="RIPv1"></a>RIPv1</h3><p>RIPv1使用<a href="https://zh.wikipedia.org/wiki/%E5%88%86%E7%B1%BB%E7%BD%91%E7%BB%9C" target="_blank" rel="noopener">分类路由</a>，定义在《<a href="https://tools.ietf.org/html/rfc1058" target="_blank" rel="noopener">RFC 1058</a>》中。在它的路由更新（Routing Updates）中并不带有<a href="https://zh.wikipedia.org/w/index.php?title=Subnetwork&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">子网</a>的资讯，因此它无法支援<a href="https://zh.wikipedia.org/wiki/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1" target="_blank" rel="noopener">可变长度子网掩码</a>。这个限制造成在RIPv1的网络中，在<a href="https://zh.wikipedia.org/w/index.php?title=Network_class&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener">同级网络</a>下无法使用不同的子网掩码。换句话说，在同一个网络下所有的子网络数目都是相同的。另外，RIPv1的协议报文中没有验证字段，所以RIPv1不支持验证。</p>
+<p>RIPv1是一个基于UDP的路由协议，并且RIPv1的数据包不能超过512字节（RIP报文头部占用4个字节,而每个路由条目占用20个八位组字节。因此,RIP消息最大为4+(25*20)=504个字节,再加上8个字节的UDP头部,所以RIP数据报的大小(不含IP包的头部)最大可达512个字节。）。</p>
+<h3 id="RIPv2"><a href="#RIPv2" class="headerlink" title="RIPv2"></a>RIPv2</h3><p>RIPv2在RIPv1的基础上改进如下几点：</p>
+<ul>
+<li>支持外部路由标记（Route Tag），可以在路由策略中根据Tag对路由进行灵活的控制。实际上不同RIP进程间相互引入路由也可以使用Tag。 </li>
+<li>报文中携带掩码信息，支持路由聚合和CIDR。</li>
+<li>支持指定下一跳，在广播网上可以选择到目的网段最优下一跳地址。</li>
+<li>支持以组播方式发送更新报文，只有运行RIPv2的设备才能收到协议报文，减少资源消耗。</li>
+<li>支持对协议报文进行验证，增强安全性。</li>
+</ul>
+<h3 id="RIPng"><a href="#RIPng" class="headerlink" title="RIPng"></a>RIPng</h3><p>RIPng（Routing Information Protocol next generation）在RFC 2080中被定义，主要是针对<a href="https://zh.wikipedia.org/wiki/IPv6" target="_blank" rel="noopener">IPv6</a>做一些延伸的规范。与RIPv2相比下其最主要的差异是：</p>
+<ul>
+<li>RIPv2 支援RIP更新认证, RIPng 则不支持，因为IPv6路由器理应会使用<a href="https://zh.wikipedia.org/wiki/IPsec" target="_blank" rel="noopener">IPsec</a>来进行身份验证;</li>
+<li>RIPv2 容许给路由器附上任何标签， RIPng 则不容许；</li>
+<li>RIPv2 在每个路由表项中都保存下一跳的信息，RIPng 是对一组路由表项指定下一跳信息；</li>
+<li>RIPv2 使用<a href="https://zh.wikipedia.org/wiki/UDP" target="_blank" rel="noopener">UDP</a>端口520和多播地址224.0.0.9通信，RIPng 则使用UDP端口521和多播地址FF02::9通信</li>
+</ul>
+<h2 id="RIP协议定时器"><a href="#RIP协议定时器" class="headerlink" title="RIP协议定时器"></a>RIP协议定时器</h2><p>RIP在更新和维护路由信息时主要使用以下4个定时器：</p>
+<ol>
+<li>更新定时器：当此超时器超时时，立即发送路由更新报文，缺省每30s发送一次。</li>
+<li>老化定时器：RIP设备如果在老化时间内没有收到邻居发来的路由更新报文，则认为该路由不可达。当学到一条路由并添加到RIP路由表中时，老化定时器启动，如果老化定时器超时，设备仍没有收到邻居发来的更新报文，则吧该路由的度量值置为16，并启动垃圾收集定时器。</li>
+<li>垃圾收集定时器：如果在垃圾收集时间内仍没有收到原来不可达到路由的更新，该路由将被从RIP路由表彻底删除。</li>
+<li>抑制定时器：当RIP设备收到对端的路由更新，其度量值为16。则对应路由进入抑制状态，并启动抑制定时器，缺省值为180s。这时，为了防止路由震荡，在抑制定时器超时之前，即使再收到对端路由度量值小于16的更新，也不接受。当抑制超时器超时后，就重新接受对端发送的路由更新报文。</li>
+</ol>
+<h3 id="RIP-原理演示"><a href="#RIP-原理演示" class="headerlink" title="RIP 原理演示"></a>RIP 原理演示</h3><p><img src="/2017/12/25/RIP-Protocol/./RIP-Protocol/example.jpg" alt="example"></p>
+<p>上述网络拓扑图包含三个路由器，每个路由器链接两个不同的网段；</p>
+<p>刚开始三个路由器的路由表信息如下（以R1作为实例）：</p>
+<table>
+<thead>
+<tr>
+<th>目的网络</th>
+<th>下一跳</th>
+<th>距离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.0.0.0</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>20.0.0.0</td>
+<td>—</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>经过定时器定时更新，下一个周期的路由表信息如下（以R1作为实例）：</p>
+<table>
+<thead>
+<tr>
+<th>目的网络</th>
+<th>下一跳</th>
+<th>距离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.0.0.0</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>20.0.0.0</td>
+<td>—</td>
+<td>0</td>
+</tr>
+<tr>
+<td>30.0.0.0</td>
+<td>20.0.0.9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>40.0.0.0</td>
+<td>20.0.0.9</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>由于 RIP 有跳数限制，就出现如下的扩大跳数限制的方案：</p>
+<h3 id="配置GRE扩大跳数受限的网络工作范围示例"><a href="#配置GRE扩大跳数受限的网络工作范围示例" class="headerlink" title="配置GRE扩大跳数受限的网络工作范围示例"></a>配置GRE扩大跳数受限的网络工作范围示例</h3><p>​    如下图所示，RouterA、RouterB、RouterC和RouterD之间需要部署RIP路由协议实现互通，要求RouterA到RouterD只经过1跳，即Cost值为1。不改变组网的情况下，正常部署RIP协议，RouterA到RouterD需要经过两台设备，跳数为2，此时可以在RouterA和RouterC之间部署GRE隧道，隐藏中间设备RouterB，实现RouterA到RouterD的跳数为1，可以看出，其经过的跳数实际为2，相当于扩大了RIP协议的跳数受限的网络工作范围。</p>
+<p><img src="/2017/12/25/RIP-Protocol/./RIP-Protocol/gre-rip.png" alt="gre-rip"></p>
+<ul>
+<li>配置思路</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">配置GRE扩大跳数受限的网络工作范围的思路如下：</span><br><span class="line"></span><br><span class="line">在设备RouterA、RouterB和RouterC上运行RIP协议，进程为1，实现互通。</span><br><span class="line"></span><br><span class="line">RouterA与RouterC之间建立GRE隧道，隐藏RouterB。</span><br><span class="line"></span><br><span class="line">在设备RouterA、RouterC和RouterD上运行RIP协议，进程为2，使RIP路由经过GRE隧道传输，扩大了RIP协议实际的跳数范围。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>操作步骤</p>
+<ul>
+<li><p>配置各物理接口IP地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># 配置RouterA。</span><br><span class="line"></span><br><span class="line">&lt;Huawei&gt; system-view</span><br><span class="line">[Huawei] sysname RouterA</span><br><span class="line">[RouterA] interface gigabitethernet 1/0/0</span><br><span class="line">[RouterA-GigabitEthernet1/0/0] ip address 20.1.1.1 255.255.255.0</span><br><span class="line">[RouterA-GigabitEthernet1/0/0] quit</span><br><span class="line"># 配置RouterB。</span><br><span class="line"></span><br><span class="line">&lt;Huawei&gt; system-view</span><br><span class="line">[Huawei] sysname RouterB</span><br><span class="line">[RouterB] interface gigabitethernet 1/0/0</span><br><span class="line">[RouterB-GigabitEthernet1/0/0] ip address 20.1.1.2 255.255.255.0</span><br><span class="line">[RouterB-GigabitEthernet1/0/0] quit</span><br><span class="line">[RouterB] interface gigabitethernet 2/0/0</span><br><span class="line">[RouterB-GigabitEthernet2/0/0] ip address 30.1.1.1 255.255.255.0</span><br><span class="line">[RouterB-GigabitEthernet2/0/0] quit</span><br><span class="line"># 配置RouterC。</span><br><span class="line"></span><br><span class="line">&lt;Huawei&gt; system-view</span><br><span class="line">[Huawei] sysname RouterC</span><br><span class="line">[RouterC] interface gigabitethernet 1/0/0</span><br><span class="line">[RouterC-GigabitEthernet1/0/0] ip address 30.1.1.2 255.255.255.0</span><br><span class="line">[RouterC-GigabitEthernet1/0/0] quit</span><br><span class="line">[RouterC] interface gigabitethernet 2/0/0</span><br><span class="line">[RouterC-GigabitEthernet2/0/0] ip address 40.1.1.1 255.255.255.0</span><br><span class="line">[RouterC-GigabitEthernet2/0/0] quit</span><br><span class="line"># 配置RouterD。</span><br><span class="line"></span><br><span class="line">&lt;Huawei&gt; system-view</span><br><span class="line">[Huawei] sysname RouterD</span><br><span class="line">[RouterD] interface gigabitethernet 1/0/0</span><br><span class="line">[RouterD-GigabitEthernet1/0/0] ip address 40.1.1.2 255.255.255.0</span><br><span class="line">[RouterD-GigabitEthernet1/0/0] quit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置设备间使用RIP路由，进程为1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># 配置RouterA。</span><br><span class="line"></span><br><span class="line">[RouterA] rip 1</span><br><span class="line">[RouterA-rip-1] version 2</span><br><span class="line">[RouterA-rip-1] network 20.0.0.0 </span><br><span class="line">[RouterA-rip-1] quit</span><br><span class="line"># 配置RouterB。</span><br><span class="line"></span><br><span class="line">[RouterB] rip 1</span><br><span class="line">[RouterB-rip-1] version 2</span><br><span class="line">[RouterB-rip-1] network 20.0.0.0</span><br><span class="line">[RouterB-rip-1] network 30.0.0.0</span><br><span class="line">[RouterB-rip-1] quit</span><br><span class="line"># 配置RouterC。</span><br><span class="line"></span><br><span class="line">[RouterC] rip 1</span><br><span class="line">[RouterC-rip-1] version 2</span><br><span class="line">[RouterC-rip-1] network 30.0.0.0</span><br><span class="line">[RouterC-rip-1] quit</span><br><span class="line"># 配置完成后，在RouterA和RouterC上执行display ip routing-table命令，可以看到它们能够学到去往对端接口网段地址的RIP路由。</span><br><span class="line"></span><br><span class="line"># 以RouterA的显示为例。</span><br><span class="line"></span><br><span class="line">[RouterA] display ip routing-table</span><br><span class="line">Route Flags: R - relay, D - download to fib</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">Routing Tables: Public</span><br><span class="line">         Destinations : 8        Routes : 8</span><br><span class="line"></span><br><span class="line">Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface</span><br><span class="line"></span><br><span class="line">       20.1.1.0/24  Direct  0    0           D   20.1.1.1        GigabitEthernet1/0/0</span><br><span class="line">       20.1.1.1/32  Direct  0    0           D   127.0.0.1       GigabitEthernet1/0/0</span><br><span class="line">     20.1.1.255/32  Direct  0    0           D   127.0.0.1       GigabitEthernet1/0/0</span><br><span class="line">       30.1.1.0/24  RIP     100  1           D   20.1.1.2        GigabitEthernet1/0/0</span><br><span class="line">      127.0.0.0/8   Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">      127.0.0.1/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">127.255.255.255/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">255.255.255.255/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置Tunnel接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># 配置RouterA。</span><br><span class="line"></span><br><span class="line">[RouterA] interface tunnel 0/0/1</span><br><span class="line">[RouterA-Tunnel0/0/1] tunnel-protocol gre</span><br><span class="line">[RouterA-Tunnel0/0/1] ip address 50.1.1.1 255.255.255.0</span><br><span class="line">[RouterA-Tunnel0/0/1] source 20.1.1.1</span><br><span class="line">[RouterA-Tunnel0/0/1] destination 30.1.1.2</span><br><span class="line">[RouterA-Tunnel0/0/1] quit</span><br><span class="line"># 配置RouterC。</span><br><span class="line"></span><br><span class="line">[RouterC] interface tunnel 0/0/1</span><br><span class="line">[RouterC-Tunnel0/0/1] tunnel-protocol gre</span><br><span class="line">[RouterC-Tunnel0/0/1] ip address 50.1.1.2 255.255.255.0</span><br><span class="line">[RouterC-Tunnel0/0/1] source 30.1.1.2</span><br><span class="line">[RouterC-Tunnel0/0/1] destination 20.1.1.1</span><br><span class="line">[RouterC-Tunnel0/0/1] quit</span><br><span class="line"># 配置完成后，Tunnel接口状态变为Up，Tunnel接口之间可以Ping通。</span><br><span class="line"></span><br><span class="line"># 以RouterA的显示为例：</span><br><span class="line"></span><br><span class="line">[RouterA] ping -a 50.1.1.1 50.1.1.2</span><br><span class="line">  PING 50.1.1.2: 56  data bytes, press CTRL_C to break</span><br><span class="line">    Reply from 50.1.1.2: bytes=56 Sequence=1 ttl=255 time=1 ms</span><br><span class="line">    Reply from 50.1.1.2: bytes=56 Sequence=2 ttl=255 time=1 ms</span><br><span class="line">    Reply from 50.1.1.2: bytes=56 Sequence=3 ttl=255 time=1 ms</span><br><span class="line">    Reply from 50.1.1.2: bytes=56 Sequence=4 ttl=255 time=1 ms</span><br><span class="line">    Reply from 50.1.1.2: bytes=56 Sequence=5 ttl=255 time=1 ms</span><br><span class="line"></span><br><span class="line">  --- 50.1.1.2 ping statistics ---</span><br><span class="line">    5 packet(s) transmitted</span><br><span class="line">    5 packet(s) received</span><br><span class="line">    0.00% packet loss</span><br><span class="line">    round-trip min/avg/max = 1/1/1 ms</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置Tunnel接口使用RIP路由，进程为2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 配置RouterA。</span><br><span class="line"></span><br><span class="line">[RouterA] rip 2</span><br><span class="line">[RouterA-rip-2] version 2</span><br><span class="line">[RouterA-rip-2] network 50.0.0.0</span><br><span class="line">[RouterA-rip-2] quit</span><br><span class="line"># 配置RouterC。</span><br><span class="line"></span><br><span class="line">[RouterC] rip 2</span><br><span class="line">[RouterC-rip-2] version 2</span><br><span class="line">[RouterC-rip-2] network 50.0.0.0</span><br><span class="line">[RouterC-rip-2] network 40.0.0.0</span><br><span class="line">[RouterC-rip-2] quit</span><br><span class="line"># 配置RouterD。</span><br><span class="line"></span><br><span class="line">[RouterD] rip 2</span><br><span class="line">[RouterD-rip-2] version 2</span><br><span class="line">[RouterD-rip-2] network 40.0.0.0</span><br><span class="line">[RouterD-rip-2] quit</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>检查配置结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 配置完成后，在RouterA和RouterD上执行display ip routing-table命令，可以看到目的地址为对端设备的路由，其Cost值为1。</span><br><span class="line"></span><br><span class="line"># 以RouterA的显示为例。</span><br><span class="line"></span><br><span class="line">[RouterA] display ip routing-table</span><br><span class="line">Route Flags: R - relay, D - download to fib</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">Routing Tables: Public</span><br><span class="line">         Destinations : 12       Routes : 12</span><br><span class="line"></span><br><span class="line">Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface</span><br><span class="line"></span><br><span class="line">       20.1.1.0/24  Direct  0    0           D   20.1.1.1        GigabitEthernet1/0/0</span><br><span class="line">       20.1.1.1/32  Direct  0    0           D   127.0.0.1       GigabitEthernet1/0/0</span><br><span class="line">     20.1.1.255/32  Direct  0    0           D   127.0.0.1       GigabitEthernet1/0/0</span><br><span class="line">       30.1.1.0/24  RIP     100  1           D   20.1.1.2        GigabitEthernet1/0/0</span><br><span class="line">       40.1.1.0/24  RIP     100  1           D   50.1.1.2        Tunnel0/0/1</span><br><span class="line">       50.1.1.0/24  Direct  0    0           D   50.1.1.1        Tunnel0/0/1</span><br><span class="line">       50.1.1.1/32  Direct  0    0           D   127.0.0.1       Tunnel0/0/1</span><br><span class="line">     50.1.1.255/32  Direct  0    0           D   127.0.0.1       Tunnel0/0/1</span><br><span class="line">      127.0.0.0/8   Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">      127.0.0.1/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">127.255.255.255/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br><span class="line">255.255.255.255/32  Direct  0    0           D   127.0.0.1       InLoopBack0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：上述示例是参照华为 GRE 配置文档</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2017/12/25/RIP-Protocol/" title="RIP Protocol" target="_blank" rel="external">http://yoursite.com/2017/12/25/RIP-Protocol/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/tian-yuan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/tian-yuan" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Full Stack Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjMwOS84ODcw">
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+      
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2017/12/22/Https-Certification-Erro/" title="Https Certification Erro">下一篇&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  
+  
+  <div class="bar-right">
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+  </div>
+  
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+          </div>
+          <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/alipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="支付宝" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/images/donate/weipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="微信支付" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>扫一扫，即可进行扫码打赏哦</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/tian-yuan" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="fa fa-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="fa fa-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+    
+    
+
+
+
+</body>
+</html>
