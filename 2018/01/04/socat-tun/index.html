@@ -16,20 +16,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Network Problem | Hexo</title>
-  <meta name="description" content="简介本文档主要包含网络设置过程中碰到的问题； 具体问题在验证 pipework 过程中出现虚拟机网络不通的情况出现这种问题一遍需要查看如下方面的信息  查看 /etc/resolv.conf，看是否存在 nameserver 查看网卡是否存在 ip 地址 检查是否有路由及默认路由">
+  <title>socat tun | Hexo</title>
+  <meta name="description" content="【转载】使用 socat 和 kcptun 实现 vpn 转载自 https://imkira.com/a18.html  工具简介socat 是一个流重定向工具，例如可以将一个文件流通过 tcp 发送出去。本文主要使用 socat 的 tun 转发功能。socat 可以使用如下命令安装： 12yum install ">
 <meta name="keywords" content="Network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Network Problem">
-<meta property="og:url" content="http://yoursite.com/2017/12/16/Network-Problem/index.html">
+<meta property="og:title" content="socat tun">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/socat-tun/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="简介本文档主要包含网络设置过程中碰到的问题； 具体问题在验证 pipework 过程中出现虚拟机网络不通的情况出现这种问题一遍需要查看如下方面的信息  查看 /etc/resolv.conf，看是否存在 nameserver 查看网卡是否存在 ip 地址 检查是否有路由及默认路由">
-<meta property="og:updated_time" content="2017-12-16T05:51:48.697Z">
+<meta property="og:description" content="【转载】使用 socat 和 kcptun 实现 vpn 转载自 https://imkira.com/a18.html  工具简介socat 是一个流重定向工具，例如可以将一个文件流通过 tcp 发送出去。本文主要使用 socat 的 tun 转发功能。socat 可以使用如下命令安装： 12yum install -y socat kcptun 是一个使用 udp 代替 tcp 的数据承载工具">
+<meta property="og:image" content="https://imkira.com/files/1484378374309408627.png">
+<meta property="og:updated_time" content="2018-01-04T02:28:29.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Network Problem">
-<meta name="twitter:description" content="简介本文档主要包含网络设置过程中碰到的问题； 具体问题在验证 pipework 过程中出现虚拟机网络不通的情况出现这种问题一遍需要查看如下方面的信息  查看 /etc/resolv.conf，看是否存在 nameserver 查看网卡是否存在 ip 地址 检查是否有路由及默认路由">
+<meta name="twitter:title" content="socat tun">
+<meta name="twitter:description" content="【转载】使用 socat 和 kcptun 实现 vpn 转载自 https://imkira.com/a18.html  工具简介socat 是一个流重定向工具，例如可以将一个文件流通过 tcp 发送出去。本文主要使用 socat 的 tun 转发功能。socat 可以使用如下命令安装： 12yum install -y socat kcptun 是一个使用 udp 代替 tcp 的数据承载工具">
+<meta name="twitter:image" content="https://imkira.com/files/1484378374309408627.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2017/12/16/Network-Problem/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/01/04/socat-tun/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -345,14 +347,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Network-Problem" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-socat-tun" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Network Problem
+      socat tun
     </h1>
   
 
@@ -360,8 +362,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="fa fa-calendar-check-o"></i>
-	<a href="/2017/12/16/Network-Problem/" class="article-date">
-	  <time datetime="2017-12-16T05:43:27.000Z" itemprop="datePublished">2017-12-16</time>
+	<a href="/2018/01/04/socat-tun/" class="article-date">
+	  <time datetime="2018-01-04T02:26:39.000Z" itemprop="datePublished">2018-01-04</time>
 	</a>
 </span>
         
@@ -381,20 +383,40 @@
 	</span>
 
 
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/12/16/Network-Problem/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2018/01/04/socat-tun/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
       
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文档主要包含网络设置过程中碰到的问题；</p>
-<h3 id="具体问题"><a href="#具体问题" class="headerlink" title="具体问题"></a>具体问题</h3><h4 id="在验证-pipework-过程中出现虚拟机网络不通的情况"><a href="#在验证-pipework-过程中出现虚拟机网络不通的情况" class="headerlink" title="在验证 pipework 过程中出现虚拟机网络不通的情况"></a>在验证 pipework 过程中出现虚拟机网络不通的情况</h4><p>出现这种问题一遍需要查看如下方面的信息</p>
-<ul>
-<li>查看 /etc/resolv.conf，看是否存在 nameserver</li>
-<li>查看网卡是否存在 ip 地址</li>
-<li>检查是否有路由及默认路由</li>
-</ul>
+        <h1 id="【转载】使用-socat-和-kcptun-实现-vpn"><a href="#【转载】使用-socat-和-kcptun-实现-vpn" class="headerlink" title="【转载】使用 socat 和 kcptun 实现 vpn"></a>【转载】使用 socat 和 kcptun 实现 vpn</h1><blockquote>
+<p>转载自 <a href="https://imkira.com/a18.html" target="_blank" rel="noopener">https://imkira.com/a18.html</a></p>
+</blockquote>
+<h3 id="工具简介"><a href="#工具简介" class="headerlink" title="工具简介"></a>工具简介</h3><p>socat 是一个流重定向工具，例如可以将一个文件流通过 tcp 发送出去。本文主要使用 socat 的 tun 转发功能。<br>socat 可以使用如下命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yum install -y socat</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/xtaci/kcptun" target="_blank" rel="noopener">kcptun</a> 是一个使用 udp 代替 tcp 的数据承载工具。在较差的网络环境中可以用带宽换时延，提高网络速度。<br>kcptun 是一个基于 kcp 协议的开源 tunnel 项目，可以在 <a href="https://github.com/xtaci/kcptun/releases" target="_blank" rel="noopener">Github</a> 下载，注意选择系统版本 。</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p><img src="https://imkira.com/files/1484378374309408627.png" alt="原理图"></p>
+<ol>
+<li>socat 创建 tun 设备，并读取 tun 设备的所有 ip 数据包，将数据包发送至另一端。</li>
+<li>原则上 socat 客户端与 socat 服务端之间可以不使用 kcptun ， socat 客户端可以直接与 socat 服务端通信。</li>
+<li>使用 kcptun 的目的是提高客户端与服务端之间的通信效率。</li>
+</ol>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="服务端："><a href="#服务端：" class="headerlink" title="服务端："></a>服务端：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 启动 socat ，监听 tcp 5001 端口，设置 tun 设备 ip 地址为 10.0.0.1/24</span><br><span class="line">nohup socat -d -d TCP-LISTEN:5001,reuseaddr TUN:10.0.0.1/24,up &gt; socat.out 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"># 启动 kcptun ，监听 udp 5000 端口， 把数据都转发给 127.0.0.1:5001</span><br><span class="line"># 此处 kcptun 使用的是 linux/amd64 版本</span><br><span class="line">nohup ./server_linux_amd64 -t 127.0.0.1:5001 -l :5000 -mode fast2 &amp; &gt; kcptun.out 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>增加 iptables 规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># eth0 是服务器的外网网卡，根据服务器的网卡情况设置</span><br><span class="line"># 这条规则用于伪装 tun 的数据包</span><br><span class="line">iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+<h4 id="客户端："><a href="#客户端：" class="headerlink" title="客户端："></a>客户端：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 启动 kcptun ， 监听 tcp 5001 端口， 把数据都转发给 服务器IP:5000 </span><br><span class="line">nohup ./client_linux_amd64  -r 服务器IP:5000 -l :5001 -mode fast2 &gt; kcptun.out 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"># 启动 socat ，将 tun 设备所有数据包发送至 127.0.0.1:5001</span><br><span class="line">nohup socat TCP:127.0.0.1:5001 TUN:10.0.0.2/24,up &gt; socat.out 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>增加 iptables 规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># tun0 是 socat 创建的 tun 网卡，需要根据实际情况设置</span><br><span class="line"># 这条规则用于伪装 tun 的数据包</span><br><span class="line">iptables -t nat -A POSTROUTING  -o tun0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+<h4 id="客户端路由设置"><a href="#客户端路由设置" class="headerlink" title="客户端路由设置"></a>客户端路由设置</h4><p>如果没有设置客户端的路由，那么只能访问 10.0.0.1 。<br>ping 10.0.0.1 的情况:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ping -I tun0 10.0.0.1</span><br><span class="line">PING 10.0.0.1 (10.0.0.1) from 10.0.0.2 tun0: 56(84) bytes of data.</span><br><span class="line">64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=276 ms</span><br><span class="line">64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=272 ms</span><br><span class="line">64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=278 ms</span><br><span class="line">64 bytes from 10.0.0.1: icmp_seq=4 ttl=64 time=270 ms</span><br><span class="line"></span><br><span class="line">--- 10.0.0.1 ping statistics ---</span><br><span class="line">4 packets transmitted, 4 received, 0% packet loss, time 3003ms</span><br><span class="line">rtt min/avg/max/mdev = 270.519/274.514/278.211/3.022 ms</span><br></pre></td></tr></table></figure>
+<p>这个 IP 是服务端的 tun0 的 IP 地址，客户端的 socat 在创建 tun0 的同时会加上一个对应 10.0.0.0/24 的路由，所以 10.0.0.1 能够正常访问。路由如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">10.0.0.0/24 dev tun0  proto kernel  scope link  src 10.0.0.2</span><br></pre></td></tr></table></figure>
+<p>ping 8.8.8.8 的情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ping -I tun0 8.8.8.8</span><br><span class="line">PING 8.8.8.8 (8.8.8.8) from 10.0.0.2 tun0: 56(84) bytes of data.</span><br><span class="line"></span><br><span class="line">--- 8.8.8.8 ping statistics ---</span><br><span class="line">6 packets transmitted, 0 received, 100% packet loss, time 5000ms</span><br></pre></td></tr></table></figure>
+<p>在客户端通过 tcpdump 确认 tun0 能正常的从 socat 发出并收到服务端的 IP 报文。ip -s addr show tun0 的 RX 和 TX 显示 IP 报文正常接收，没有错误，也没有 drop，但是无法被发出 IP 报文的应用程序接收。</p>
+<p>添加对应 IP 的路由后，即可正常访问这些 IP ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 8.8.0.0/16 网段的 ip 都会通过 tun0 转发，根据实际需要设置路由即可</span><br><span class="line">ip route add 8.8.0.0/16 dev tun0</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -404,7 +426,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2017/12/16/Network-Problem/" title="Network Problem" target="_blank" rel="external">http://yoursite.com/2017/12/16/Network-Problem/</a>
+      <a href="http://yoursite.com/2018/01/04/socat-tun/" title="socat tun" target="_blank" rel="external">http://yoursite.com/2018/01/04/socat-tun/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -454,13 +476,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2017/12/20/Network-Technologe/" title="Network Technologe"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2017/12/15/ip-转发/" title="ip 转发">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/12/25/RIP-Protocol/" title="RIP Protocol">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
     </li>
     
   </ul>
