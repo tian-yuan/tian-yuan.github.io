@@ -24,13 +24,13 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="理解 MQTT QOS简介MQTT 提供了 3 种 QOS 级别，分别是 QOS0、QOS1、QOS2； 本文档分别介绍这三种 QOS，请注意 PUBLISH 侧的 QOS 和 SUBSCRIBE 侧的 QOS 在流程上的区别，以及 PUBLISH QOS 和 SUBSCRIBE QOS 组合后的服务 QOS； QOS0—最多发送一次这种 QOS 是发布速度最快，效率最高的，但是同时也是最不可靠的">
-<meta property="og:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/理解MQTT-QOS/mqtt-publish-flow-qos-2.jpg">
-<meta property="og:updated_time" content="2018-01-10T03:20:57.742Z">
+<meta property="og:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/mqtt-publish-flow-qos-2.jpg">
+<meta property="og:updated_time" content="2018-01-10T03:47:30.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解MQTT QOS">
 <meta name="twitter:description" content="理解 MQTT QOS简介MQTT 提供了 3 种 QOS 级别，分别是 QOS0、QOS1、QOS2； 本文档分别介绍这三种 QOS，请注意 PUBLISH 侧的 QOS 和 SUBSCRIBE 侧的 QOS 在流程上的区别，以及 PUBLISH QOS 和 SUBSCRIBE QOS 组合后的服务 QOS； QOS0—最多发送一次这种 QOS 是发布速度最快，效率最高的，但是同时也是最不可靠的">
-<meta name="twitter:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg">
   <!-- Canonical links -->
   <link rel="canonical" href="http://yoursite.com/2018/01/10/理解MQTT-QOS/index.html">
   
@@ -395,12 +395,12 @@
 <p>本文档分别介绍这三种 QOS，请注意 PUBLISH 侧的 QOS 和 SUBSCRIBE 侧的 QOS 在流程上的区别，以及 PUBLISH QOS 和 SUBSCRIBE QOS 组合后的服务 QOS；</p>
 <h4 id="QOS0—最多发送一次"><a href="#QOS0—最多发送一次" class="headerlink" title="QOS0—最多发送一次"></a>QOS0—最多发送一次</h4><p>这种 QOS 是发布速度最快，效率最高的，但是同时也是最不可靠的一种传输模式；</p>
 <p>以 QOS0 发布的消息不会存储在发送端，同时发布后没有 ACK；最多发送一次；只要消息从发送端发送出去，消息就会从发送端的出队列里面剔除；因此这种 QOS 级别的发布不存在消息重复的情况；</p>
-<h4 id="QOS1—至少发送一次"><a href="#QOS1—至少发送一次" class="headerlink" title="QOS1—至少发送一次"></a>QOS1—至少发送一次</h4><p><img src="/2018/01/10/理解MQTT-QOS/./理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg" alt="mqtt-publish-flow-qos-1"></p>
+<h4 id="QOS1—至少发送一次"><a href="#QOS1—至少发送一次" class="headerlink" title="QOS1—至少发送一次"></a>QOS1—至少发送一次</h4><p><img src="/2018/01/10/理解MQTT-QOS/./mqtt-publish-flow-qos-1.jpg" alt="mqtt-publish-flow-qos-1"></p>
 <p>这种级别的消息发布，可以保证消息至少被发布一次，有可能被发布多次。</p>
 <p>发布 QOS 为 1 的消息，需要两次消息交互；发送方发送一个消息，然后等待接收方的回复（PUBACK）。</p>
 <p>如果发送方接收到 ACK 消息，客户端 APP 就把发布消息从发送队列里面清除；</p>
 <p>如果发送方没有接收到 ACK 消息，客户端会重新发送消息，同时设置消息的 DUP 标记。消息会被以指定时间间隔重新发送直到发送方接收到 ACK。如果 broker 接收到消息，broker 就把消息转发给消息订阅者，即使消息存在 DUP 标记，因此消息订阅者有可能多次接收到同一条消息。</p>
-<h4 id="QOS2—只发送一次"><a href="#QOS2—只发送一次" class="headerlink" title="QOS2—只发送一次"></a>QOS2—只发送一次</h4><p><img src="/2018/01/10/理解MQTT-QOS/./理解MQTT-QOS/mqtt-publish-flow-qos-2.jpg" alt="mqtt-publish-flow-qos-2"></p>
+<h4 id="QOS2—只发送一次"><a href="#QOS2—只发送一次" class="headerlink" title="QOS2—只发送一次"></a>QOS2—只发送一次</h4><p><img src="/2018/01/10/理解MQTT-QOS/./mqtt-publish-flow-qos-2.jpg" alt="mqtt-publish-flow-qos-2"></p>
 <p>这种消息发布级别的服务是效率最低的，需要进行四次消息交互才能完成一条消息的发布；</p>
 <ul>
 <li>发送者发布一条消息，等待接收回复（PUBREC）</li>
