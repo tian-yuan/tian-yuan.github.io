@@ -16,15 +16,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Archive: 2018 | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <title>理解MQTT QOS | Hexo</title>
+  <meta name="description" content="理解 MQTT QOS简介MQTT 提供了 3 种 QOS 级别，分别是 QOS0、QOS1、QOS2； 本文档分别介绍这三种 QOS，请注意 PUBLISH 侧的 QOS 和 SUBSCRIBE 侧的 QOS 在流程上的区别，以及 PUBLISH QOS 和 SUBSCRIBE QOS 组合后的服务 QOS； QOS">
+<meta name="keywords" content="IOT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解MQTT QOS">
+<meta property="og:url" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="理解 MQTT QOS简介MQTT 提供了 3 种 QOS 级别，分别是 QOS0、QOS1、QOS2； 本文档分别介绍这三种 QOS，请注意 PUBLISH 侧的 QOS 和 SUBSCRIBE 侧的 QOS 在流程上的区别，以及 PUBLISH QOS 和 SUBSCRIBE QOS 组合后的服务 QOS； QOS0—最多发送一次这种 QOS 是发布速度最快，效率最高的，但是同时也是最不可靠的">
+<meta property="og:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/理解MQTT-QOS/mqtt-publish-flow-qos-2.jpg">
+<meta property="og:updated_time" content="2018-01-10T03:20:57.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="理解MQTT QOS">
+<meta name="twitter:description" content="理解 MQTT QOS简介MQTT 提供了 3 种 QOS 级别，分别是 QOS0、QOS1、QOS2； 本文档分别介绍这三种 QOS，请注意 PUBLISH 侧的 QOS 和 SUBSCRIBE 侧的 QOS 在流程上的区别，以及 PUBLISH QOS 和 SUBSCRIBE QOS 组合后的服务 QOS； QOS0—最多发送一次这种 QOS 是发布速度最快，效率最高的，但是同时也是最不可靠的">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/10/理解MQTT-QOS/理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/archives/2018/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/01/10/理解MQTT-QOS/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -339,58 +347,235 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">Archive: 2018</h1>
-	      <p class="text-muted">Total 2 articles</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-理解MQTT-QOS" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      理解MQTT QOS
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="fa fa-calendar-check-o"></i>
+	<a href="/2018/01/10/理解MQTT-QOS/" class="article-date">
+	  <time datetime="2018-01-10T02:38:20.000Z" itemprop="datePublished">2018-01-10</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="fa fa-tag"></i>
+	<a class="article-tag-link" href="/tags/IOT/">IOT</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="fa fa-eye" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2018/01/10/理解MQTT-QOS/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+      
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h3 id="理解-MQTT-QOS"><a href="#理解-MQTT-QOS" class="headerlink" title="理解 MQTT QOS"></a>理解 MQTT QOS</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>MQTT 提供了 3 种 QOS 级别，分别是 QOS0、QOS1、QOS2；</p>
+<p>本文档分别介绍这三种 QOS，请注意 PUBLISH 侧的 QOS 和 SUBSCRIBE 侧的 QOS 在流程上的区别，以及 PUBLISH QOS 和 SUBSCRIBE QOS 组合后的服务 QOS；</p>
+<h4 id="QOS0—最多发送一次"><a href="#QOS0—最多发送一次" class="headerlink" title="QOS0—最多发送一次"></a>QOS0—最多发送一次</h4><p>这种 QOS 是发布速度最快，效率最高的，但是同时也是最不可靠的一种传输模式；</p>
+<p>以 QOS0 发布的消息不会存储在发送端，同时发布后没有 ACK；最多发送一次；只要消息从发送端发送出去，消息就会从发送端的出队列里面剔除；因此这种 QOS 级别的发布不存在消息重复的情况；</p>
+<h4 id="QOS1—至少发送一次"><a href="#QOS1—至少发送一次" class="headerlink" title="QOS1—至少发送一次"></a>QOS1—至少发送一次</h4><p><img src="/2018/01/10/理解MQTT-QOS/./理解MQTT-QOS/mqtt-publish-flow-qos-1.jpg" alt="mqtt-publish-flow-qos-1"></p>
+<p>这种级别的消息发布，可以保证消息至少被发布一次，有可能被发布多次。</p>
+<p>发布 QOS 为 1 的消息，需要两次消息交互；发送方发送一个消息，然后等待接收方的回复（PUBACK）。</p>
+<p>如果发送方接收到 ACK 消息，客户端 APP 就把发布消息从发送队列里面清除；</p>
+<p>如果发送方没有接收到 ACK 消息，客户端会重新发送消息，同时设置消息的 DUP 标记。消息会被以指定时间间隔重新发送直到发送方接收到 ACK。如果 broker 接收到消息，broker 就把消息转发给消息订阅者，即使消息存在 DUP 标记，因此消息订阅者有可能多次接收到同一条消息。</p>
+<h4 id="QOS2—只发送一次"><a href="#QOS2—只发送一次" class="headerlink" title="QOS2—只发送一次"></a>QOS2—只发送一次</h4><p><img src="/2018/01/10/理解MQTT-QOS/./理解MQTT-QOS/mqtt-publish-flow-qos-2.jpg" alt="mqtt-publish-flow-qos-2"></p>
+<p>这种消息发布级别的服务是效率最低的，需要进行四次消息交互才能完成一条消息的发布；</p>
+<ul>
+<li>发送者发布一条消息，等待接收回复（PUBREC）</li>
+<li>接收者回复一条 PUBREC 消息</li>
+<li>如果发送者没有接收到 PUBREC 回应消息，发送者会重发消息，同时设置消息的 DUB 标记</li>
+<li>当发送者接收到 PUBREC 消息后，发送者发送 PUBREL 消息给接收者</li>
+<li>如果接收者没有接收到 PUBREL 消息，接收者继续回复 PUBREC 消息给发送者</li>
+<li>当接收者接收到 PUBREL 消息后，接收者转发消息到消息订阅者</li>
+<li>接收者接收到 PUBREL 消息后，同时回复 PUBCOMP 消息给发送者</li>
+<li>当发送者接收到 PUBCOMP 消息后，发送者把发布消息从发送队列中清理掉</li>
+<li>如果发送者没有接收到 PUBCOMP 消息，发送者会继续发送 PUBREL 消息；</li>
+</ul>
+<blockquote>
+<p>相关 example 可以参照：<a href="http://www.steves-internet-guide.com/understanding-mqtt-qos-2/" target="_blank" rel="noopener">http://www.steves-internet-guide.com/understanding-mqtt-qos-2/</a></p>
+</blockquote>
+<h3 id="客户端到客户端-QOS"><a href="#客户端到客户端-QOS" class="headerlink" title="客户端到客户端 QOS"></a>客户端到客户端 QOS</h3><p>两个连接到相同 broker 上的客户端之间的服务质量是由 PUBLISH 消息的 QOS 和 SUBSCRIBE 的 QOS 共同决定的。</p>
+<p>整个系统 QOS 总是取决于 PUBLISH 和 SUBSCRIBE QOS 两者的最小值，可以参见下表：</p>
+<table>
+<thead>
+<tr>
+<th>QOS PUBLISH</th>
+<th>QOS SUBSCRIBE</th>
+<th>OVERALL QOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0 or 1 or 2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 or 2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2018/01/10/理解MQTT-QOS/" title="理解MQTT QOS" target="_blank" rel="external">http://yoursite.com/2018/01/10/理解MQTT-QOS/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/tian-yuan" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/tian-yuan" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Full Stack Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+       
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMjMwOS84ODcw">
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+      
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2018" aria-expanded="true">
-              <i class="fa fa-calendar-plus-o text-active"></i><i class="fa fa-calendar-minus-o text"></i>
-              2018
-            </a>
-            <!-- <a href="/archives/2018" class="archive-year">2018</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/01/04/socat-tun/" title="socat tun">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  
+  
+  <div class="bar-right">
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+  </div>
+  
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>Thank you for your support, I will continue to work hard!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+          </div>
+          <p class="text-muted mv">Scan this qrcode</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/alipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="alipay" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/images/donate/weipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="weipay" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>Scan this qrcode, you can sweep yards reward oh!</p>
+          </div>
         </div>
-        <div id="collapse2018" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2018">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2018/01/10/理解MQTT-QOS/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-01-10T02:38:20.000Z" itemprop="datePublished">2018-01-10</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 理解MQTT QOS
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-    
-    
-    
-<a href="/2018/01/04/socat-tun/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-01-04T02:26:39.000Z" itemprop="datePublished">2018-01-04</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> socat tun
-</a>
 
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -447,6 +632,24 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
     
+    
+        
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
     
     
 

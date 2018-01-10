@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/10/%E7%90%86%E8%A7%A3MQTT-QOS/</loc>
+    
+    <lastmod>2018-01-10T03:20:57.742Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/01/04/socat-tun/</loc>
     
     <lastmod>2018-01-04T02:28:29.775Z</lastmod>
