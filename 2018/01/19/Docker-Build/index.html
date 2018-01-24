@@ -16,21 +16,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>create blog | Hexo</title>
-  <meta name="description" content="How to create your blog in three step first should install nodejs/git install hexo, https://hexo.io/ use theme next, http://theme-next.iissnan.com/ start your b">
+  <title>Docker Build | Hexo</title>
+  <meta name="description" content="从源码编译 Docker从源码编译 docker 有两种方式  使用源码自带的 Dockfile 及 Makefile 进行编译； 自行安装所有依赖，并使用 ./hack/make.sh 进行编译；  简单方法编译简单方法安装，必须使用以前版本的 docker 编译新版本的 docker 可执行文件；因为使用自带的编译">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="create blog">
-<meta property="og:url" content="http://yoursite.com/2017/11/29/create-blog/index.html">
+<meta property="og:title" content="Docker Build">
+<meta property="og:url" content="http://yoursite.com/2018/01/19/Docker-Build/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="How to create your blog in three step first should install nodejs/git install hexo, https://hexo.io/ use theme next, http://theme-next.iissnan.com/ start your blog  the blog is look like">
-<meta property="og:image" content="http://yoursite.com/2017/11/29/create-blog/create-blog-main-page.png">
-<meta property="og:updated_time" content="2017-11-29T02:35:16.176Z">
+<meta property="og:description" content="从源码编译 Docker从源码编译 docker 有两种方式  使用源码自带的 Dockfile 及 Makefile 进行编译； 自行安装所有依赖，并使用 ./hack/make.sh 进行编译；  简单方法编译简单方法安装，必须使用以前版本的 docker 编译新版本的 docker 可执行文件；因为使用自带的编译方式，需要运行一个 docker 容器，在 docker 容器中安装依赖，然后再">
+<meta property="og:updated_time" content="2018-01-19T05:09:54.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="create blog">
-<meta name="twitter:description" content="How to create your blog in three step first should install nodejs/git install hexo, https://hexo.io/ use theme next, http://theme-next.iissnan.com/ start your blog  the blog is look like">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/29/create-blog/create-blog-main-page.png">
+<meta name="twitter:title" content="Docker Build">
+<meta name="twitter:description" content="从源码编译 Docker从源码编译 docker 有两种方式  使用源码自带的 Dockfile 及 Makefile 进行编译； 自行安装所有依赖，并使用 ./hack/make.sh 进行编译；  简单方法编译简单方法安装，必须使用以前版本的 docker 编译新版本的 docker 可执行文件；因为使用自带的编译方式，需要运行一个 docker 容器，在 docker 容器中安装依赖，然后再">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2017/11/29/create-blog/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/01/19/Docker-Build/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -346,14 +345,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-create-blog" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Docker-Build" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      create blog
+      Docker Build
     </h1>
   
 
@@ -361,12 +360,17 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="fa fa-calendar-check-o"></i>
-	<a href="/2017/11/29/create-blog/" class="article-date">
-	  <time datetime="2017-11-29T02:01:32.000Z" itemprop="datePublished">2017-11-29</time>
+	<a href="/2018/01/19/Docker-Build/" class="article-date">
+	  <time datetime="2018-01-19T04:59:00.000Z" itemprop="datePublished">2018-01-19</time>
 	</a>
 </span>
         
         
+  <span class="article-tag">
+    <i class="fa fa-tag"></i>
+	<a class="article-tag-link" href="/tags/Docker/">Docker</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -377,20 +381,70 @@
 	</span>
 
 
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/11/29/create-blog/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2018/01/19/Docker-Build/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
       
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h3 id="How-to-create-your-blog-in-three-step"><a href="#How-to-create-your-blog-in-three-step" class="headerlink" title="How to create your blog in three step"></a>How to create your blog in three step</h3><ul>
-<li>first should install nodejs/git</li>
-<li>install hexo, <a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a></li>
-<li>use theme next, <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></li>
-<li>start your blog</li>
+        <h4 id="从源码编译-Docker"><a href="#从源码编译-Docker" class="headerlink" title="从源码编译 Docker"></a>从源码编译 Docker</h4><p>从源码编译 docker 有两种方式</p>
+<ul>
+<li>使用源码自带的 Dockfile 及 Makefile 进行编译；</li>
+<li>自行安装所有依赖，并使用 ./hack/make.sh 进行编译；</li>
 </ul>
-<h3 id="the-blog-is-look-like"><a href="#the-blog-is-look-like" class="headerlink" title="the blog is look like"></a>the blog is look like</h3><p><img src="/2017/11/29/create-blog/create-blog-main-page.png" alt="main page"></p>
+<h4 id="简单方法编译"><a href="#简单方法编译" class="headerlink" title="简单方法编译"></a>简单方法编译</h4><p>简单方法安装，必须使用以前版本的 docker 编译新版本的 docker 可执行文件；因为使用自带的编译方式，需要运行一个 docker 容器，在 docker 容器中安装依赖，然后再编译 docker 源码。</p>
+<ul>
+<li>安装 docker</li>
+<li>获取 moby 最新代码</li>
+<li>直接 make 即可</li>
+<li>在目录下 ./bundles 下会有生成的可执行文件</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>描述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dockerd</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docker-containerd</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docker-containerd-shim</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docker-containerd-ctr</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docker-init</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docker-runc</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docker-proxy</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -400,7 +454,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2017/11/29/create-blog/" title="create blog" target="_blank" rel="external">http://yoursite.com/2017/11/29/create-blog/</a>
+      <a href="http://yoursite.com/2018/01/19/Docker-Build/" title="Docker Build" target="_blank" rel="external">http://yoursite.com/2018/01/19/Docker-Build/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -451,12 +505,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2017/11/30/spring-mvc/" title="spring mvc"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
+      <a href="/2018/01/22/Go-Type-Assertions/" title="Go Type Assertions"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
     </li>
     
     
     <li class="next">
-      <a href="/2017/11/29/hello-world/" title="Hello World">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/01/16/TOR/" title="TOR">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
     </li>
     
   </ul>

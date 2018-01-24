@@ -16,21 +16,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>create blog | Hexo</title>
-  <meta name="description" content="How to create your blog in three step first should install nodejs/git install hexo, https://hexo.io/ use theme next, http://theme-next.iissnan.com/ start your b">
+  <title>Docker Authz Plugin | Hexo</title>
+  <meta name="description" content="Docker 的 auth 插件原理原理可以参见 https://docs.docker.com/engine/extend/plugins_authorization/#api-schema-and-implementation  示例使用 authz 作为 auth 插件  下载源码 https://github.">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="create blog">
-<meta property="og:url" content="http://yoursite.com/2017/11/29/create-blog/index.html">
+<meta property="og:title" content="Docker Authz Plugin">
+<meta property="og:url" content="http://yoursite.com/2018/01/24/Docker-Authz-Plugin/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="How to create your blog in three step first should install nodejs/git install hexo, https://hexo.io/ use theme next, http://theme-next.iissnan.com/ start your blog  the blog is look like">
-<meta property="og:image" content="http://yoursite.com/2017/11/29/create-blog/create-blog-main-page.png">
-<meta property="og:updated_time" content="2017-11-29T02:35:16.176Z">
+<meta property="og:description" content="Docker 的 auth 插件原理原理可以参见 https://docs.docker.com/engine/extend/plugins_authorization/#api-schema-and-implementation  示例使用 authz 作为 auth 插件  下载源码 https://github.com/twistlock/authz make all 进行编译，编译过程中可">
+<meta property="og:updated_time" content="2018-01-24T13:18:37.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="create blog">
-<meta name="twitter:description" content="How to create your blog in three step first should install nodejs/git install hexo, https://hexo.io/ use theme next, http://theme-next.iissnan.com/ start your blog  the blog is look like">
-<meta name="twitter:image" content="http://yoursite.com/2017/11/29/create-blog/create-blog-main-page.png">
+<meta name="twitter:title" content="Docker Authz Plugin">
+<meta name="twitter:description" content="Docker 的 auth 插件原理原理可以参见 https://docs.docker.com/engine/extend/plugins_authorization/#api-schema-and-implementation  示例使用 authz 作为 auth 插件  下载源码 https://github.com/twistlock/authz make all 进行编译，编译过程中可">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2017/11/29/create-blog/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/01/24/Docker-Authz-Plugin/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -346,14 +345,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-create-blog" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Docker-Authz-Plugin" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      create blog
+      Docker Authz Plugin
     </h1>
   
 
@@ -361,12 +360,17 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="fa fa-calendar-check-o"></i>
-	<a href="/2017/11/29/create-blog/" class="article-date">
-	  <time datetime="2017-11-29T02:01:32.000Z" itemprop="datePublished">2017-11-29</time>
+	<a href="/2018/01/24/Docker-Authz-Plugin/" class="article-date">
+	  <time datetime="2018-01-24T11:21:48.000Z" itemprop="datePublished">2018-01-24</time>
 	</a>
 </span>
         
         
+  <span class="article-tag">
+    <i class="fa fa-tag"></i>
+	<a class="article-tag-link" href="/tags/Docker/">Docker</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -377,20 +381,32 @@
 	</span>
 
 
-        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2017/11/29/create-blog/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="fa fa-commenting-o"></i> <a href="/2018/01/24/Docker-Authz-Plugin/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
       
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h3 id="How-to-create-your-blog-in-three-step"><a href="#How-to-create-your-blog-in-three-step" class="headerlink" title="How to create your blog in three step"></a>How to create your blog in three step</h3><ul>
-<li>first should install nodejs/git</li>
-<li>install hexo, <a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a></li>
-<li>use theme next, <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></li>
-<li>start your blog</li>
+        <h3 id="Docker-的-auth-插件"><a href="#Docker-的-auth-插件" class="headerlink" title="Docker 的 auth 插件"></a>Docker 的 auth 插件</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>原理可以参见 <a href="https://docs.docker.com/engine/extend/plugins_authorization/#api-schema-and-implementation" target="_blank" rel="noopener">https://docs.docker.com/engine/extend/plugins_authorization/#api-schema-and-implementation</a> </p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>使用 authz 作为 auth 插件</p>
+<ul>
+<li>下载源码 <a href="https://github.com/twistlock/authz" target="_blank" rel="noopener">https://github.com/twistlock/authz</a></li>
+<li>make all 进行编译，编译过程中可能需要使用 go get 安装其他依赖包</li>
+<li>编译生成可执行文件 authz-broker</li>
+<li>创建配置文件 /var/lib/authz-broker/policy.json，包含相关的权限 policy</li>
+<li>以管理员权限运行 authz-broker，authz-broker 会创建 /run/docker/plugins/auth-broker.sock，此文件会被 docker daemon 扫描到；</li>
+<li>以管理员权限修改 /etc/systemd/system/docker.service 文件</li>
 </ul>
-<h3 id="the-blog-is-look-like"><a href="#the-blog-is-look-like" class="headerlink" title="the blog is look like"></a>the blog is look like</h3><p><img src="/2017/11/29/create-blog/create-blog-main-page.png" alt="main page"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ExecStart=/usr/bin/dockerd -H fd:// </span><br><span class="line">===&gt;</span><br><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --authorization-plugin=authz-broker</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行 systemctl dameo-reload，重新加载配置文件；</li>
+<li>ps 查看运行结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ps aux | grep auth</span><br><span class="line">root       830  0.0  1.6 357828 16496 tty7     Ssl+ 05:04   0:00 /usr/lib/xorg/Xorg -core :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch</span><br><span class="line">root     19969  0.1  1.9 496140 19436 ?        Ssl  06:39   0:05 /usr/bin/dockerd -H fd:// --authorization-plugin=authz-broker</span><br><span class="line">tianyuan 21946  0.0  0.1  14192  1092 pts/8    S+   08:03   0:00 grep --color=auto auth</span><br><span class="line">root     25033  0.0  0.3  61856  3332 pts/9    S    06:53   0:00 sudo ./twistlock_authz_broker</span><br><span class="line">root     25034  0.0  0.3  10248  3200 pts/9    Sl   06:53   0:00 ./twistlock_authz_broker</span><br></pre></td></tr></table></figure>
+<p>如果使用如下policy.json 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;name&quot;:&quot;policy_1&quot;,&quot;users&quot;:[&quot;xxxx&quot;],&quot;actions&quot;:[&quot;version&quot;]&#125;</span><br><span class="line">&#123;&quot;name&quot;:&quot;policy_3&quot;,&quot;users&quot;:[&quot;&quot;],&quot;actions&quot;:[&quot;version&quot;, &quot;container&quot;]&#125;</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">Error response from daemon: authorization denied by plugin authz-broker: action &apos;image_list&apos; denied for user &apos;&apos; by policy &apos;policy_3&apos;</span><br><span class="line"></span><br><span class="line">$ docker version</span><br><span class="line">Client:</span><br><span class="line"> Version:	17.12.0-ce</span><br><span class="line"> API version:	1.35</span><br><span class="line"> Go version:	go1.9.2</span><br><span class="line"> Git commit:	c97c6d6</span><br><span class="line"> Built:	Wed Dec 27 20:11:19 2017</span><br><span class="line"> OS/Arch:	linux/amd64</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line"> Engine:</span><br><span class="line">  Version:	17.12.0-ce</span><br><span class="line">  API version:	1.35 (minimum version 1.12)</span><br><span class="line">  Go version:	go1.9.2</span><br><span class="line">  Git commit:	c97c6d6</span><br><span class="line">  Built:	Wed Dec 27 20:09:53 2017</span><br><span class="line">  OS/Arch:	linux/amd64</span><br><span class="line">  Experimental:	false</span><br></pre></td></tr></table></figure>
+<p>从上面示例看，docker client没有提供 user，可以自己开发一个 client，在 HTTP 请求中增加 user 字段；</p>
 
       
     </div>
@@ -400,7 +416,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2017/11/29/create-blog/" title="create blog" target="_blank" rel="external">http://yoursite.com/2017/11/29/create-blog/</a>
+      <a href="http://yoursite.com/2018/01/24/Docker-Authz-Plugin/" title="Docker Authz Plugin" target="_blank" rel="external">http://yoursite.com/2018/01/24/Docker-Authz-Plugin/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -450,13 +466,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2017/11/30/spring-mvc/" title="spring mvc"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;Newer</a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2017/11/29/hello-world/" title="Hello World">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/01/22/Go-Type-Assertions/" title="Go Type Assertions">Older&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
     </li>
     
   </ul>
